@@ -1,0 +1,138 @@
+.information-account {
+  background-color: #f5f5f5;
+  padding: 20px;
+  &-header {
+    border-bottom: 1px solid #ededed;
+    padding-bottom: 15px;
+    margin-bottom: 20px;
+    &-title {
+      font-size: 24px;
+      font-weight: bold;
+      color: $color-primary;
+    }
+    &-sub {
+      font-size: 16px;
+    }
+  }
+  &-main {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    &-infor {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      width: 75%;
+      &-left {
+        width: 20%;
+        &-item {
+          font-size: 15px;
+          color: $color-primary;
+          font-weight: 500;
+          margin-bottom: 20px;
+          text-align: right;
+        }
+      }
+      &-right {
+        width: 80%;
+        margin-left: 30px;
+        &-text {
+          font-size: 15px;
+          font-weight: 600;
+          color: $color-primary;
+          margin-bottom: 10px;
+        }
+        &-input {
+          width: 70%;
+          padding: 8px 10px;
+          font-size: 15px;
+        }
+        &-email {
+          font-size: 15px;
+          margin-top: 12px;
+          margin-bottom: 20px;
+          font-weight: 500;
+          color: $color-primary;
+        }
+        &-change {
+          text-decoration: underline;
+          color: $color-secondary;
+          font-size: 13px;
+          margin-left: 5px;
+          &:hover {
+            cursor: pointer;
+            color: $color-yellow;
+          }
+        }
+        &-sec {
+          margin-top: 1px;
+          display: flex;
+          align-items: center;
+          &-item {
+            display: flex;
+            align-items: center;
+            margin-right: 30px;
+            &-radio {
+              width: 18px;
+              height: 18px;
+              margin-right: 8px;
+              &:hover {
+                cursor: pointer !important;
+              }
+            }
+            &-text {
+              font-size: 15px;
+            }
+          }
+        }
+        &-date {
+          font-size: 15px;
+          width: 70%;
+          margin-top: 10px;
+          padding: 8px 10px;
+        }
+      }
+    }
+    &-image {
+      border-left: 1px solid #ededed;
+      padding-left: 30px;
+      &-avtar {
+        margin: 0 auto;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        border: 1px solid green;
+      }
+      &-name {
+        text-align: center;
+        margin-top: 10px;
+        font-size: 13px;
+        color: $color-primary;
+      }
+      &-btn {
+        margin: 10px auto 0 auto;
+        text-align: center;
+        width: 100px;
+        font-size: 15px;
+        padding: 3px 12px;
+        border-radius: 3px;
+        border: 1px solid #bfbfbf;
+        transition: all 0.2s ease-in-out;
+        &:hover {
+          cursor: pointer;
+          background-color: $color-primary;
+          color: white;
+          transition: all 0.2s ease-in-out;
+        }
+      }
+      &-text {
+        text-align: center;
+        font-size: 14px;
+        margin-top: 10px;
+      }
+    }
+  }
+}

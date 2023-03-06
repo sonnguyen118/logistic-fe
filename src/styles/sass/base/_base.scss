@@ -1,0 +1,149 @@
+html {
+  box-sizing: border-box;
+  width: 100vw;
+  // overflow-x: hidden;
+}
+html,
+body {
+  max-width: 100%;
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+  scroll-behavior: auto !important;
+}
+input {
+  outline: none;
+  border: 0.5px solid #bfbfbf;
+}
+input:focus {
+  outline: none;
+  border-color: $color-primary;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  transition: ease 0.3s;
+}
+textarea:focus {
+  outline: none;
+  border-color: $color-primary;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+
+body {
+  margin: 0;
+  font-family: "Roboto", Arial, sans-serif;
+  letter-spacing: 0.5px;
+}
+.hide {
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0.7s, opacity 1.5s ease;
+}
+.active {
+  visibility: visible;
+  opacity: 1;
+  transition: visibility 0.7s, opacity 1.5s ease;
+}
+.italic {
+  font-family: Roboto-Italic;
+  font-size: 20px !important;
+  letter-spacing: 2px;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+a {
+  color: #000;
+  text-decoration: none;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  padding: 0;
+}
+
+// css scrollbar
+/* width */
+/* width */
+::-webkit-scrollbar {
+  display: block;
+}
+::-webkit-scrollbar {
+  width: 4px;
+  transition: all 0.3s ease-in-out;
+}
+::-webkit-scrollbar:hover {
+  width: 8px;
+  transition: all 0.3s ease-in-out;
+}
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #292ab6;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #28285c;
+}
+::-webkit-scrollbar-track {
+  // -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  // border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 2px;
+  // -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
+}
+
+// ft
+.font-size-20 {
+  font-size: 20px !important;
+}
+
+body {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
+
+// buộc phải in css
+* {
+  -webkit-print-color-adjust: exact !important; /* Chrome, Safari 6 – 15.3, Edge */
+  color-adjust: exact !important; /* Firefox 48 – 96 */
+  print-color-adjust: exact !important; /* Firefox 97+, Safari 15.4+ */
+}
+
+select {
+  /*for firefox*/
+  -moz-appearance: none;
+  /*for chrome*/
+  -webkit-appearance: none;
+  appearance: none;
+}
+/*for IE10+*/
+select::-ms-expand {
+  display: none;
+}
+
+// css cho layout in
+@media print {
+}
+
+// css cho react - slick
+.slick-arrow {
+  display: none !important;
+}

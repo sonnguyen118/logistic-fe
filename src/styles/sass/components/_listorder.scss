@@ -1,0 +1,126 @@
+.list-order {
+  padding: 20px;
+  background-color: #f5f5f5;
+  &-none {
+    &-image {
+      background-position: 50%;
+      background-size: contain;
+      background-repeat: no-repeat;
+      width: 300px;
+      height: 300px;
+      margin: 20px auto 10px auto;
+    }
+    &-text {
+      text-align: center;
+      margin-top: 0px;
+      font-size: 15px;
+      padding-bottom: 20px;
+    }
+  }
+  &-header {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    border-bottom: 1px solid #ededed;
+    padding-bottom: 15px;
+    margin-bottom: 20px;
+    &-item {
+      font-size: 16px;
+      font-weight: 500;
+      color: $color-primary;
+      &:nth-child(1) {
+        width: 8%;
+        text-align: center;
+      }
+      &:nth-child(2) {
+        width: 18%;
+        text-align: center;
+      }
+      &:nth-child(3) {
+        width: 24%;
+        text-align: center;
+      }
+      &:nth-child(4) {
+        width: 15%;
+        text-align: center;
+      }
+      &:nth-child(5) {
+        width: 15%;
+        text-align: center;
+      }
+      &:nth-child(6) {
+        width: 20%;
+        text-align: center;
+      }
+    }
+  }
+  &-item {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    transition: all 0.2s ease-in-out;
+    padding: 12px 0;
+    &:hover {
+      cursor: pointer;
+      background-color: $color-primary;
+      transition: all 0.2s linear;
+      .list-order-item-infor {
+        color: $color-yellow;
+        transition: all 0.2s linear;
+      }
+    }
+    &-infor {
+      font-size: 14px;
+      color: $color-primary;
+      transition: all 0.2s ease-in-out;
+      &:nth-child(1) {
+        width: 8%;
+        text-align: center;
+      }
+      &:nth-child(2) {
+        width: 18%;
+        text-align: center;
+      }
+      &:nth-child(3) {
+        width: 24%;
+        text-align: center;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      &:nth-child(4) {
+        width: 15%;
+        text-align: center;
+      }
+      &:nth-child(5) {
+        width: 15%;
+        text-align: center;
+      }
+      &:nth-child(6) {
+        width: 20%;
+        text-align: center;
+        font-weight: 600;
+      }
+    }
+  }
+  &-pagination {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 20px;
+    padding: 20px 40px 0 40px;
+    border-top: 1px solid #ededed;
+  }
+  &-search {
+    display: flex;
+    align-items: center;
+    &-title {
+      font-size: 14px;
+      width: 160px;
+    }
+    &-input {
+      width: 80px;
+      font-size: 15px;
+    }
+  }
+}
