@@ -17,18 +17,21 @@ const Navbar = () => {
     <nav className="navbar-pc">
       <div className="navbar-pc-top">
         <div className="navbar-pc-top-left">
-          <div className="navbar-pc-top-left-item">
+          <a
+            href="mailto:webmaster@example.com"
+            className="navbar-pc-top-left-item"
+          >
             <i className="navbar-pc-top-left-item-icon fa-solid fa-envelope"></i>
             <span className="navbar-pc-top-left-item-title">Email:</span>
             <span className="navbar-pc-top-left-item-content">
               vanchuyenlephuong2019@gmail.com
             </span>
-          </div>
-          <div className="navbar-pc-top-left-item">
+          </a>
+          <a href="tel:+6494461709" className="navbar-pc-top-left-item">
             <i className="navbar-pc-top-left-item-icon fa-solid fa-phone"></i>
             <span className="navbar-pc-top-left-item-title">Hotline:</span>
             <span className="navbar-pc-top-left-item-content">0934577111</span>
-          </div>
+          </a>
           <div className="navbar-pc-top-left-item">
             <i className="navbar-pc-top-left-item-icon fa-solid fa-clock"></i>
             <span className="navbar-pc-top-left-item-title">Giờ làm việc:</span>

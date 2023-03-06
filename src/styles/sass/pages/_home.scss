@@ -1,10 +1,11 @@
 .home {
-  height: calc(100vh - 35px);
+  height: calc(100vh - 34px);
   overflow: hidden;
-  position: relative;
+  top: 0px;
+  left: 0;
   &-video {
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: calc(100vh - 34px);
     object-fit: cover;
   }
   &-image {
@@ -17,28 +18,28 @@
   &-content {
     position: absolute;
     width: 100%;
-    height: 100%;
+    height: calc(100% - 35px);
     background-color: rgba(224, 221, 221, 0.11);
-    top: 0;
+    top: 35px;
     left: 0;
     &-header {
-      margin-top: 30vh;
+      margin-top: 35vh;
       text-align: center;
       font-size: 26px;
-      line-height: 26px;
+      line-height: 28px;
       font-weight: 300;
       color: #222;
-      letter-spacing: 5px;
+      letter-spacing: 6px;
       // -webkit-text-stroke: 0.1px #fff;
       text-shadow: 0.5px 0.5px #333, -0.5px -0.5px #333, 0.5px -0.5px #333,
         -0.5px 0.5px #eee;
     }
     &-main {
-      width: 60%;
-      margin: 10px auto;
+      width: 50%;
+      margin: 20px auto;
       text-align: center;
-      font-size: 36px;
-      line-height: 48px;
+      font-size: 40px;
+      line-height: 60px;
       font-weight: 600;
       color: #222;
       letter-spacing: 2px;
@@ -55,7 +56,7 @@
         margin: 10px 20px;
         background-color: $color-primary;
         border-radius: 20px;
-        width: 148px;
+        width: 230px;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -64,7 +65,7 @@
         &-icon {
           font-size: 16px;
           color: $color-white;
-          margin-right: 8px;
+          margin-right: 12px;
         }
         &-title {
           font-size: 16px;
@@ -78,4 +79,544 @@
       }
     }
   }
+}
+
+// Responsive code for responsive
+// responsive
+@include responsive_200 {
+  .home {
+    height: 100vh;
+    top: 0px;
+    left: 0;
+    &-video {
+      width: 100vw;
+      height: 100vh;
+    }
+    &-image {
+      width: 100%;
+      height: 100%;
+    }
+    &-content {
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      &-header {
+        margin-top: 15vh;
+        font-size: 15px;
+        line-height: 20px;
+        font-weight: 300;
+        color: #222;
+        letter-spacing: 5px;
+      }
+      &-main {
+        width: 75%;
+        margin: 25px auto;
+        font-size: 20px;
+        line-height: 38px;
+        font-weight: 600;
+        color: #222;
+        letter-spacing: 2px;
+      }
+      &-group {
+        &-btn {
+          padding: 3px 3px;
+          margin: 20px 10px;
+          border-radius: 20px;
+          width: 100px;
+          &-icon {
+            font-size: 12.5px;
+            margin-right: 5px;
+          }
+          &-title {
+            font-size: 12.5px;
+          }
+        }
+      }
+    }
+  }
+}
+@include responsive_280 {
+  .home {
+    height: 100vh;
+    top: 0px;
+    left: 0;
+    &-video {
+      width: 100vw;
+      height: 100vh;
+    }
+    &-image {
+      width: 100%;
+      height: 100%;
+    }
+    &-content {
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      &-header {
+        margin-top: 15vh;
+        font-size: 15px;
+        line-height: 20px;
+        font-weight: 300;
+        color: #222;
+        letter-spacing: 5px;
+      }
+      &-main {
+        width: 75%;
+        margin: 25px auto;
+        font-size: 20px;
+        line-height: 38px;
+        font-weight: 600;
+        color: #222;
+        letter-spacing: 2px;
+      }
+      &-group {
+        &-btn {
+          padding: 3px 3px;
+          margin: 20px 10px;
+          border-radius: 20px;
+          width: 100px;
+          &-icon {
+            font-size: 12.5px;
+            margin-right: 5px;
+          }
+          &-title {
+            font-size: 12.5px;
+          }
+        }
+      }
+    }
+  }
+}
+@include responsive_320 {
+  .home {
+    height: 100vh;
+    top: 0px;
+    left: 0;
+    &-video {
+      width: 100vw;
+      height: 100vh;
+    }
+    &-image {
+      width: 100%;
+      height: 100%;
+    }
+    &-content {
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      &-header {
+        margin-top: 15vh;
+        font-size: 16px;
+        line-height: 20px;
+        font-weight: 300;
+        color: #222;
+        letter-spacing: 5px;
+      }
+      &-main {
+        width: 90%;
+        margin: 25px auto;
+        font-size: 22px;
+        line-height: 38px;
+        font-weight: 600;
+        color: #222;
+        letter-spacing: 2px;
+      }
+      &-group {
+        &-btn {
+          padding: 5px 5px;
+          margin: 30px 15px;
+          border-radius: 20px;
+          width: 120px;
+          &-icon {
+            font-size: 13px;
+            margin-right: 8px;
+          }
+          &-title {
+            font-size: 13px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@include responsive_375 {
+  .home {
+    height: calc(100vh);
+    top: 0px;
+    left: 0;
+    &-video {
+      width: 100vw;
+      height: calc(100vh);
+    }
+    &-image {
+      width: 100%;
+      height: 100%;
+    }
+    &-content {
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      &-header {
+        margin-top: 17vh;
+        font-size: 16px;
+        line-height: 20px;
+        font-weight: 300;
+        color: #222;
+        letter-spacing: 5px;
+      }
+      &-main {
+        width: 80%;
+        margin: 15px auto;
+        font-size: 22px;
+        line-height: 38px;
+        font-weight: 600;
+        color: #222;
+        letter-spacing: 2px;
+      }
+      &-group {
+        &-btn {
+          padding: 5px 10px;
+          margin: 35px 20px;
+          border-radius: 20px;
+          width: 140px;
+          &-icon {
+            font-size: 14px;
+            margin-right: 10px;
+          }
+          &-title {
+            font-size: 14px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@include responsive_456 {
+  .home {
+    height: calc(100vh);
+    top: 0px;
+    left: 0;
+    &-video {
+      width: 100vw;
+      height: calc(100vh);
+    }
+    &-image {
+      width: 100%;
+      height: 100%;
+    }
+    &-content {
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      &-header {
+        margin-top: 20vh;
+        font-size: 18px;
+        line-height: 20px;
+        font-weight: 300;
+        color: #222;
+        letter-spacing: 5px;
+      }
+      &-main {
+        width: 80%;
+        margin: 15px auto;
+        font-size: 24px;
+        line-height: 40px;
+        font-weight: 600;
+        color: #222;
+        letter-spacing: 2px;
+      }
+      &-group {
+        &-btn {
+          padding: 6px 10px;
+          margin: 40px 20px;
+          border-radius: 20px;
+          width: 140px;
+          &-icon {
+            font-size: 14px;
+            margin-right: 10px;
+          }
+          &-title {
+            font-size: 14px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@include responsive_768 {
+  .home {
+    height: calc(100vh - 34px);
+    top: 0px;
+    left: 0;
+    &-video {
+      width: 100vw;
+      height: calc(100vh - 34px);
+    }
+    &-image {
+      width: 100%;
+      height: 100%;
+    }
+    &-content {
+      width: 100%;
+      height: calc(100% - 35px);
+      top: 35px;
+      left: 0;
+      &-header {
+        margin-top: 28vh;
+        font-size: 20px;
+        line-height: 20px;
+        font-weight: 300;
+        color: #222;
+        letter-spacing: 5px;
+      }
+      &-main {
+        width: 70%;
+        margin: 15px auto;
+        font-size: 28px;
+        line-height: 46px;
+        font-weight: 600;
+        color: #222;
+        letter-spacing: 2px;
+      }
+      &-group {
+        &-btn {
+          padding: 6px 10px;
+          margin: 10px 20px;
+          border-radius: 20px;
+          width: 140px;
+          &-icon {
+            font-size: 16px;
+            margin-right: 14px;
+          }
+          &-title {
+            font-size: 16px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@include responsive_1024 {
+  .home {
+    height: calc(100vh - 34px);
+    top: 0px;
+    left: 0;
+    &-video {
+      width: 100vw;
+      height: calc(100vh - 34px);
+    }
+    &-image {
+      width: 100%;
+      height: 100%;
+    }
+    &-content {
+      width: 100%;
+      height: calc(100% - 35px);
+      top: 35px;
+      left: 0;
+      &-header {
+        margin-top: 28vh;
+        font-size: 24px;
+        line-height: 24px;
+        font-weight: 300;
+        color: #222;
+        letter-spacing: 5px;
+      }
+      &-main {
+        width: 62%;
+        margin: 15px auto;
+        font-size: 32px;
+        line-height: 48px;
+        font-weight: 600;
+        color: #222;
+        letter-spacing: 2px;
+      }
+      &-group {
+        &-btn {
+          padding: 6px 20px;
+          margin: 10px 20px;
+          border-radius: 20px;
+          width: 150px;
+          &-icon {
+            font-size: 16px;
+            margin-right: 14px;
+          }
+          &-title {
+            font-size: 16px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@include responsive_1200 {
+  .home {
+    height: calc(100vh - 34px);
+    top: 0px;
+    left: 0;
+    &-video {
+      width: 100vw;
+      height: calc(100vh - 34px);
+    }
+    &-image {
+      width: 100%;
+      height: 100%;
+    }
+    &-content {
+      width: 100%;
+      height: calc(100% - 35px);
+      top: 35px;
+      left: 0;
+      &-header {
+        margin-top: 30vh;
+        font-size: 26px;
+        line-height: 26px;
+        font-weight: 300;
+        color: #222;
+        letter-spacing: 5px;
+      }
+      &-main {
+        width: 62%;
+        margin: 15px auto;
+        font-size: 34px;
+        line-height: 52px;
+        font-weight: 600;
+        color: #222;
+        letter-spacing: 2px;
+      }
+      &-group {
+        &-btn {
+          padding: 10px 20px;
+          margin: 10px 20px;
+          border-radius: 20px;
+          width: 168px;
+          &-icon {
+            font-size: 16px;
+            margin-right: 14px;
+          }
+          &-title {
+            font-size: 16px;
+          }
+        }
+      }
+    }
+  }
+}
+@include responsive_1440 {
+  .home {
+    height: calc(100vh - 34px);
+    top: 0px;
+    left: 0;
+    &-video {
+      width: 100vw;
+      height: calc(100vh - 34px);
+    }
+    &-image {
+      width: 100%;
+      height: 100%;
+    }
+    &-content {
+      width: 100%;
+      height: calc(100% - 35px);
+      top: 35px;
+      left: 0;
+      &-header {
+        margin-top: 32vh;
+        font-size: 26px;
+        line-height: 26px;
+        font-weight: 300;
+        color: #222;
+        letter-spacing: 5px;
+      }
+      &-main {
+        width: 60%;
+        margin: 15px auto;
+        font-size: 36px;
+        line-height: 55px;
+        font-weight: 600;
+        color: #222;
+        letter-spacing: 2px;
+      }
+      &-group {
+        &-btn {
+          padding: 10px 20px;
+          margin: 10px 20px;
+          border-radius: 20px;
+          width: 160px;
+          &-icon {
+            font-size: 16px;
+            margin-right: 14px;
+          }
+          &-title {
+            font-size: 16px;
+          }
+        }
+      }
+    }
+  }
+}
+@include responsive_1650 {
+  .home {
+    height: calc(100vh - 34px);
+    top: 0px;
+    left: 0;
+    &-video {
+      width: 100vw;
+      height: calc(100vh - 34px);
+    }
+    &-image {
+      width: 100%;
+      height: 100%;
+    }
+    &-content {
+      width: 100%;
+      height: calc(100% - 35px);
+      top: 35px;
+      left: 0;
+      &-header {
+        margin-top: 34vh;
+        font-size: 26px;
+        line-height: 26px;
+        font-weight: 300;
+        color: #222;
+        letter-spacing: 5px;
+      }
+      &-main {
+        width: 60%;
+        margin: 20px auto;
+        font-size: 40px;
+        line-height: 58px;
+        font-weight: 600;
+        color: #222;
+        letter-spacing: 2px;
+      }
+      &-group {
+        &-btn {
+          padding: 10px 20px;
+          margin: 10px 20px;
+          border-radius: 20px;
+          width: 180px;
+          &-icon {
+            font-size: 16px;
+            margin-right: 14px;
+          }
+          &-title {
+            font-size: 16px;
+          }
+        }
+      }
+    }
+  }
+}
+@include responsive_1900 {
 }

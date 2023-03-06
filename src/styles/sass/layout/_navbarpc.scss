@@ -1,4 +1,5 @@
 .navbar-pc {
+  display: block;
   &-top {
     display: flex;
     align-items: center;
@@ -11,18 +12,33 @@
       &-item {
         border-left: 1px solid #3b3b3b;
         padding: 0 10px;
+        &:hover {
+          cursor: pointer;
+          .navbar-pc-top-left-item-icon,
+          .navbar-pc-top-left-item-title {
+            color: $color-yellow;
+            transition: all 0.2s ease-in-out;
+          }
+          .navbar-pc-top-left-item-content {
+            color: red;
+            transition: all 0.2s ease-in-out;
+          }
+        }
         &-icon {
           font-size: 12px;
           color: $color-white;
+          transition: all 0.2s ease-in-out;
         }
         &-title {
           font-size: 12px;
           color: $color-white;
           margin: 0 5px;
+          transition: all 0.2s ease-in-out;
         }
         &-content {
           font-size: 12px;
           color: $color-yellow;
+          transition: all 0.2s ease-in-out;
         }
         &:nth-child(1) {
           border-left: none;
@@ -74,12 +90,13 @@
     align-items: center;
     justify-content: space-between;
     width: calc(100%);
-    z-index: 5;
+    z-index: 50;
     background-image: linear-gradient(
       to bottom,
       rgba(255, 255, 255, 0.6) 60%,
       transparent 100%
     );
+    // background-color: red;
     &-image {
       width: auto;
       height: 50px;
@@ -128,4 +145,302 @@
       }
     }
   }
+}
+
+// responsive
+@include responsive_200 {
+  .navbar-pc {
+    display: none;
+  }
+}
+@include responsive_280 {
+  .navbar-pc {
+    display: none;
+  }
+}
+@include responsive_320 {
+  .navbar-pc {
+    display: none;
+  }
+}
+
+@include responsive_375 {
+  .navbar-pc {
+    display: none;
+  }
+}
+
+@include responsive_456 {
+  .navbar-pc {
+    display: none;
+  }
+}
+
+@include responsive_768 {
+  .navbar-pc {
+    &-top {
+      padding: 5px 2%;
+      &-left {
+        &-item {
+          padding: 0 7px;
+          &-icon {
+            font-size: 12px;
+          }
+          &-title {
+            display: none;
+          }
+          &-content {
+            font-size: 12px;
+            margin-left: 7px;
+          }
+        }
+      }
+      &-right {
+        &-icon {
+          font-size: 12px;
+        }
+        &-create {
+          padding: 0 6px;
+          font-size: 12px;
+        }
+        &-login {
+          margin-left: 6px;
+          font-size: 12px;
+        }
+      }
+    }
+    &-menu {
+      padding: 20px 2%;
+      width: calc(100%);
+      z-index: 50;
+      &-image {
+        width: auto;
+        height: 30px;
+      }
+      &-group {
+        &-item {
+          &-title {
+            font-size: 13.5px;
+            &::after {
+              left: 0;
+              bottom: -3px;
+              width: 100%;
+              height: 2px;
+            }
+          }
+          margin-right: 15px;
+        }
+        &-btn {
+          padding: 5px 5px;
+          border-radius: 12px;
+          &-title {
+            font-size: 10px;
+          }
+        }
+      }
+    }
+  }
+}
+@include responsive_1024 {
+  .navbar-pc {
+    &-top {
+      padding: 5px 2%;
+      &-left {
+        &-item {
+          padding: 0 10px;
+          &-icon {
+            font-size: 12px;
+          }
+          &-title {
+            font-size: 12px;
+
+            margin: 0 5px;
+          }
+          &-content {
+            font-size: 12px;
+          }
+        }
+      }
+      &-right {
+        &-icon {
+          font-size: 13px;
+        }
+        &-create {
+          padding: 0 8px;
+          font-size: 13px;
+        }
+        &-login {
+          margin-left: 8px;
+          font-size: 13px;
+        }
+      }
+    }
+    &-menu {
+      padding: 20px 2%;
+      width: calc(100%);
+      z-index: 50;
+      &-image {
+        width: auto;
+        height: 50px;
+      }
+      &-group {
+        &-item {
+          &-title {
+            font-size: 16px;
+            &::after {
+              left: 0;
+              bottom: -3px;
+              width: 100%;
+              height: 2px;
+            }
+          }
+          margin-right: 20px;
+        }
+        &-btn {
+          padding: 5px 12px;
+          border-radius: 12px;
+          &-title {
+            font-size: 10px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@include responsive_1200 {
+  .navbar-pc {
+    &-top {
+      padding: 5px 2%;
+      &-left {
+        &-item {
+          padding: 0 10px;
+          &-icon {
+            font-size: 12px;
+          }
+          &-title {
+            font-size: 12px;
+
+            margin: 0 5px;
+          }
+          &-content {
+            font-size: 12px;
+          }
+        }
+      }
+      &-right {
+        &-icon {
+          font-size: 13px;
+        }
+        &-create {
+          padding: 0 8px;
+          font-size: 13px;
+        }
+        &-login {
+          margin-left: 8px;
+          font-size: 13px;
+        }
+      }
+    }
+    &-menu {
+      padding: 20px 2%;
+      width: calc(100%);
+      z-index: 50;
+      &-image {
+        width: auto;
+        height: 50px;
+      }
+      &-group {
+        &-item {
+          &-title {
+            font-size: 16px;
+            &::after {
+              left: 0;
+              bottom: -3px;
+              width: 100%;
+              height: 2px;
+            }
+          }
+          margin-right: 20px;
+        }
+        &-btn {
+          padding: 5px 12px;
+          border-radius: 12px;
+          &-title {
+            font-size: 10px;
+          }
+        }
+      }
+    }
+  }
+}
+@include responsive_1440 {
+  .navbar-pc {
+    &-top {
+      padding: 5px 2%;
+      &-left {
+        &-item {
+          padding: 0 10px;
+          &-icon {
+            font-size: 12px;
+          }
+          &-title {
+            font-size: 12px;
+
+            margin: 0 5px;
+          }
+          &-content {
+            font-size: 12px;
+          }
+        }
+      }
+      &-right {
+        &-icon {
+          font-size: 13px;
+        }
+        &-create {
+          padding: 0 8px;
+          font-size: 13px;
+        }
+        &-login {
+          margin-left: 8px;
+          font-size: 13px;
+        }
+      }
+    }
+    &-menu {
+      padding: 20px 2%;
+      width: calc(100%);
+      z-index: 50;
+      &-image {
+        width: auto;
+        height: 50px;
+      }
+      &-group {
+        &-item {
+          &-title {
+            font-size: 16px;
+            &::after {
+              left: 0;
+              bottom: -3px;
+              width: 100%;
+              height: 2px;
+            }
+          }
+          margin-right: 20px;
+        }
+        &-btn {
+          padding: 5px 12px;
+          border-radius: 12px;
+          &-title {
+            font-size: 10px;
+          }
+        }
+      }
+    }
+  }
+}
+@include responsive_1650 {
+}
+@include responsive_1900 {
 }
