@@ -1,8 +1,7 @@
 .information {
   display: flex;
   justify-content: space-between;
-  margin-top: 150px;
-  margin: 130px 7% 0 7%;
+  margin: 0px 7% 0 7%;
   &-left {
     width: 17%;
     &-user {
@@ -93,7 +92,7 @@
   }
   &-right {
     width: 80%;
-
+    margin-top: -60px;
     &-menu {
       display: flex;
       align-items: center;

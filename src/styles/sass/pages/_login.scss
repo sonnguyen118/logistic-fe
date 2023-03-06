@@ -1,54 +1,62 @@
 .login {
-    width: 40%;
-    margin: 7% auto 0 auto;
-    &-input {
-        &-l {
-            margin-right: 10px;
-        }
-        &-r {
-            margin-left: 10px;
-        }
+  &-wrap {
+    width: 100%;
+    height: calc(100vh - 36px);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  width: 40%;
+  margin: 0 auto 0 auto;
+  padding-top: 13%;
+  &-input {
+    &-l {
+      margin-right: 10px;
     }
-    &-forgotpass {
-        font-size: 14px;
-        font-weight: 500;
-        color: $color-primary;
-        &:hover{
-            color: $color-yellow;
-            transition: all 0.2s linear;
-        }
+    &-r {
+      margin-left: 10px;
     }
-    &-question {
-        font-size: 14px;
-        font-weight: 500;
-        color: $color-primary;
+  }
+  &-forgotpass {
+    font-size: 14px;
+    font-weight: 500;
+    color: $color-primary;
+    &:hover {
+      color: $color-yellow;
+      transition: all 0.2s linear;
+    }
+  }
+  &-question {
+    font-size: 14px;
+    font-weight: 500;
+    color: $color-primary;
+    transition: all 0.2s linear;
+    &:hover {
+      color: $color-yellow;
+      transition: all 0.2s linear;
+    }
+  }
+  &-remember {
+    &:hover {
+      .login-remember-text {
+        color: $color-yellow;
         transition: all 0.2s linear;
-        &:hover{
-            color: $color-yellow;
-            transition: all 0.2s linear;
-        }
+      }
     }
-    &-remember{
-        &:hover{
-            .login-remember-text{
-                color: $color-yellow;
-            transition: all 0.2s linear;
-            }
-        }
-        &-checkbox{
-            &:hover{
-                cursor: pointer;
-            }
-        }
-        &-text {
-            font-size: 14px;
-            font-weight: 500;
-            color: $color-primary;
-            text-align: left;
-            position: relative;
-            top: 2px;
-            font-style: italic;
-            transition: all 0.2s linear;
-        }
+    &-checkbox {
+      &:hover {
+        cursor: pointer;
+      }
     }
+    &-text {
+      font-size: 14px;
+      font-weight: 500;
+      color: $color-primary;
+      text-align: left;
+      position: relative;
+      top: 2px;
+      font-style: italic;
+      transition: all 0.2s linear;
+    }
+  }
 }

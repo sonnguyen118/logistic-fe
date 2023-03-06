@@ -54,6 +54,10 @@
       }
     }
   }
+  &-wrap {
+    height: 48vh;
+    overflow: scroll;
+  }
   &-item {
     display: flex;
     align-items: center;

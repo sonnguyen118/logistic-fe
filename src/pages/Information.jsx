@@ -231,6 +231,18 @@ const Information = () => {
     <>
       <Helmet></Helmet>
       <Layout>
+        <div className="list-navigation">
+          <Link to={`/`}>
+            <div className="list-navigation-item">
+              <i className="fa-solid fa-house list-navigation-home"></i>
+              <span className="list-navigation-text">Trang Chủ</span>
+            </div>
+          </Link>
+          <i className="fa-solid fa-angles-right list-navigation-icon"></i>
+          <Link to={`/information/order-status?all=1`}>
+            <span className="list-navigation-text">Tra Cứu</span>
+          </Link>
+        </div>
         <div className="information">
           <div className="information-left">
             <div className="information-left-user">
@@ -244,12 +256,14 @@ const Information = () => {
                 <div className="information-left-user-infor-title">
                   Nguyễn Như Quỳnh
                 </div>
-                <div className="information-left-user-infor-edit">
-                  <i class="fa-solid fa-pen-to-square information-left-user-infor-edit-icon"></i>
-                  <span className="information-left-user-infor-edit-text">
-                    Sửa thông tin
-                  </span>
-                </div>
+                <Link to={`/information/account`}>
+                  <div className="information-left-user-infor-edit">
+                    <i class="fa-solid fa-pen-to-square information-left-user-infor-edit-icon"></i>
+                    <span className="information-left-user-infor-edit-text">
+                      Sửa thông tin
+                    </span>
+                  </div>
+                </Link>
               </div>
             </div>
             <div className="information-left-list">
@@ -280,7 +294,7 @@ const Information = () => {
                 </span>
               </Link>
               <Link
-                to={`/information/notify`}
+                to={`/information/notify?page=1`}
                 className={
                   navigation[2]
                     ? "information-left-item information-left-item-activate"

@@ -1,14 +1,19 @@
-
 import { Link } from "react-router-dom";
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 const Navbar = () => {
-  const [imageUrl, setImageUrl] = useState('https://lephuonglogistics.com/site/images/logo-lephuong-1.png');
+  const [imageUrl, setImageUrl] = useState(
+    "https://lephuonglogistics.com/site/images/logo-lephuong-1.png"
+  );
   const [menu, setMenu] = useState([
-    { title: "Biểu phí", link: "/" }, { title: "Giới thiệu", link: "/" }, { title: "Chính sách", link: "/" }, { title: "Hướng dẫn", link: "/" }, { title: "Thông báo", link: "/" },
-  ])
+    { title: "Biểu phí", link: "/" },
+    { title: "Các sản phẩm", link: "/products" },
+    { title: "Giới thiệu", link: "/" },
+    { title: "Chính sách", link: "/" },
+    { title: "Hướng dẫn", link: "/" },
+    { title: "Thông báo", link: "/" },
+  ]);
   return (
-
     <nav className="navbar-pc">
       <div className="navbar-pc-top">
         <div className="navbar-pc-top-left">
@@ -22,9 +27,7 @@ const Navbar = () => {
           <div className="navbar-pc-top-left-item">
             <i className="navbar-pc-top-left-item-icon fa-solid fa-phone"></i>
             <span className="navbar-pc-top-left-item-title">Hotline:</span>
-            <span className="navbar-pc-top-left-item-content">
-              0934577111
-            </span>
+            <span className="navbar-pc-top-left-item-content">0934577111</span>
           </div>
           <div className="navbar-pc-top-left-item">
             <i className="navbar-pc-top-left-item-icon fa-solid fa-clock"></i>
@@ -37,10 +40,10 @@ const Navbar = () => {
         <div className="navbar-pc-top-right">
           <i className="navbar-pc-top-right-icon fa-solid fa-user"></i>
           <Link to={`/login?lable=1`}>
-            <span className="navbar-pc-top-right-create">Đăng ký</span>
+            <span className="navbar-pc-top-right-create">Đăng nhập</span>
           </Link>
           <Link to={`/login?lable=2`}>
-            <span className="navbar-pc-top-right-login">Đăng nhập</span>
+            <span className="navbar-pc-top-right-login">Đăng ký</span>
           </Link>
         </div>
       </div>
@@ -53,8 +56,14 @@ const Navbar = () => {
             <>
               {menu.map((data, i) => (
                 <>
-                  <Link to={data.link} className="navbar-pc-menu-group-item" key={i}>
-                    <h2 className="navbar-pc-menu-group-item-title">{data.title}</h2>
+                  <Link
+                    to={data.link}
+                    className="navbar-pc-menu-group-item"
+                    key={i}
+                  >
+                    <h2 className="navbar-pc-menu-group-item-title">
+                      {data.title}
+                    </h2>
                   </Link>
                 </>
               ))}
@@ -68,7 +77,6 @@ const Navbar = () => {
         </div>
       </div>
     </nav>
-
   );
 };
 

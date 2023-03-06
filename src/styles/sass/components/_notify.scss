@@ -1,0 +1,117 @@
+.information-notify {
+  background-color: #f5f5f5;
+  padding: 20px;
+  &-header {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #ededed;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    &-title {
+      font-size: 20px;
+      font-weight: bold;
+      color: $color-primary;
+    }
+    &-sub {
+      font-size: 16px;
+      font-weight: 400;
+      color: #888;
+    }
+  }
+  &-main {
+    &-embty {
+      width: 200px;
+      height: 200px;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      margin: 20px auto;
+      &-text {
+        font-size: 16px;
+        font-weight: 500;
+        color: $color-primary;
+        margin: 5px 0;
+        text-align: center;
+      }
+      &-sub {
+        font-size: 14px;
+        font-weight: 300;
+        color: $color-secondary;
+        text-align: center;
+      }
+    }
+    &-group {
+      &-item {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 15px 10px;
+        border-bottom: 1px solid #ededed;
+        &:hover {
+          background-color: #ededed;
+          cursor: pointer;
+          .information-notify-main-group-item-btn {
+            background-color: $color-primary;
+            color: #fff;
+            transition: all 0.3s ease-in-out;
+          }
+        }
+        &-image {
+          width: 120px;
+          height: 120px;
+          background-position: center;
+          background-repeat: no-repeat;
+          background-size: cover;
+          background-color: red;
+        }
+        &-infor {
+          margin: 0 10px;
+          width: 75%;
+          &-title {
+            font-size: 18px;
+            font-weight: 500;
+            color: $color-primary;
+          }
+          &-content {
+            font-size: 14px;
+            max-height: 60px;
+            line-height: 20px;
+            text-align: justify;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            color: #666;
+            margin-top: 5px;
+          }
+          &-time {
+            color: #888;
+            font-weight: 600;
+            font-size: 15px;
+            margin-top: 8px;
+          }
+        }
+        &-btn {
+          padding: 5px 8px;
+          border: 1px solid #bfbfbf;
+          color: #666;
+          font-size: 15px;
+          border-radius: 4px;
+          transition: all 0.2s ease-in-out;
+          &:hover {
+            cursor: pointer;
+            background-color: $color-primary;
+            color: #fff;
+            transition: all 0.3s ease-in-out;
+          }
+        }
+      }
+    }
+    &-pagination {
+      display: flex;
+      justify-content: center;
+      margin-top: 30px;
+    }
+  }
+}

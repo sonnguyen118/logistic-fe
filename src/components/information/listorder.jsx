@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import Pagination from "../Pagination";
 
 const ListOrder = (props) => {
   const [backgroundImage, setBackgroundImage] = useState("/emptycart.png");
   const location = useLocation();
   const [maxpage, setMaxPage] = useState(30);
-
+  const navigate = useNavigate();
   useEffect(() => {
     const searchParams = new URLSearchParams(location.search);
     // console.log(searchParams, "searchParams");
@@ -1321,18 +1321,10 @@ const ListOrder = (props) => {
     const formattedTime = `${day}/${month}/${year} ${hour}:${minute}`;
     return formattedTime;
   }
-  // Hàm tính toán số trang có thể hiển thị dựa trên số phần tử của mỗi trang và tổng số phần tử trong danh sách
-  const calculatePages = (itemsPerPage, totalItems) => {
-    const numPages = Math.ceil(totalItems / itemsPerPage);
-    const pagesArr = [];
 
-    for (let i = 1; i <= numPages; i++) {
-      pagesArr.push(i);
-    }
-
-    return pagesArr;
-  };
-
+  function handleDoubleClick(id) {
+    navigate(`/information/order-status/${id}`); // Chuyển sang trang mới
+  }
   return (
     <>
       <div className="list-order">
@@ -1350,26 +1342,33 @@ const ListOrder = (props) => {
                   </div>
                   <div className="list-order-header-item">Trạng thái</div>
                 </div>
-                {data.map((information, i) => (
-                  <div className="list-order-item">
-                    <div className="list-order-item-infor">{Number(i + 1)}</div>
-                    <div className="list-order-item-infor">
-                      {information.orCode}
+                <div className="list-order-wrap">
+                  {data.map((information, i) => (
+                    <div
+                      className="list-order-item"
+                      onDoubleClick={(e) => handleDoubleClick(i)}
+                    >
+                      <div className="list-order-item-infor">
+                        {Number(i + 1)}
+                      </div>
+                      <div className="list-order-item-infor">
+                        {information.orCode}
+                      </div>
+                      <div className="list-order-item-infor">
+                        {information.description}
+                      </div>
+                      <div className="list-order-item-infor">
+                        {formatDate(Number(information.createdDate))}
+                      </div>
+                      <div className="list-order-item-infor">
+                        {formatDate(Number(information.updatedDate))}
+                      </div>
+                      <div className="list-order-item-infor">
+                        {information.status}
+                      </div>
                     </div>
-                    <div className="list-order-item-infor">
-                      {information.description}
-                    </div>
-                    <div className="list-order-item-infor">
-                      {formatDate(Number(information.createdDate))}
-                    </div>
-                    <div className="list-order-item-infor">
-                      {formatDate(Number(information.updatedDate))}
-                    </div>
-                    <div className="list-order-item-infor">
-                      {information.status}
-                    </div>
-                  </div>
-                ))}
+                  ))}
+                </div>
                 <div className="list-order-pagination">
                   <Pagination param={"type0"} max={500} maxpage={maxpage} />
                   <div className="list-order-search">
