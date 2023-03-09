@@ -1332,42 +1332,38 @@ const ListOrder = (props) => {
           <>
             {data.length > 0 ? (
               <>
-                <div className="list-order-header">
-                  <div className="list-order-header-item">STT</div>
-                  <div className="list-order-header-item">Mã đơn hàng</div>
-                  <div className="list-order-header-item">Ghi chú</div>
-                  <div className="list-order-header-item">Ngày tạo</div>
-                  <div className="list-order-header-item">
-                    Cập nhật gần nhất
-                  </div>
-                  <div className="list-order-header-item">Trạng thái</div>
-                </div>
-                <div className="list-order-wrap">
-                  {data.map((information, i) => (
-                    <div
-                      className="list-order-item"
-                      onDoubleClick={(e) => handleDoubleClick(i)}
-                    >
-                      <div className="list-order-item-infor">
-                        {Number(i + 1)}
-                      </div>
-                      <div className="list-order-item-infor">
-                        {information.orCode}
-                      </div>
-                      <div className="list-order-item-infor">
-                        {information.description}
-                      </div>
-                      <div className="list-order-item-infor">
-                        {formatDate(Number(information.createdDate))}
-                      </div>
-                      <div className="list-order-item-infor">
-                        {formatDate(Number(information.updatedDate))}
-                      </div>
-                      <div className="list-order-item-infor">
-                        {information.status}
-                      </div>
-                    </div>
-                  ))}
+                <table className="table table-striped list-order-table">
+                  <thead>
+                    <tr>
+                      <th scope="col">STT</th>
+                      <th scope="col">Mã đơn hàng</th>
+                      <th scope="col">Thời gian</th>
+                      <th scope="col">Trạng thái</th>
+                    </tr>
+                  </thead>
+                </table>
+                <div className="list-order-table-wrap">
+                  <table className="table table-striped list-order-table">
+                    {/* <thead>
+                      <tr>
+                        <th scope="col">STT</th>
+                        <th scope="col">Mã đơn hàng</th>
+                        <th scope="col">Thời gian</th>
+                        <th scope="col">Trạng thái</th>
+                      </tr>
+                    </thead> */}
+
+                    <tbody>
+                      {data.map((information, i) => (
+                        <tr onDoubleClick={(e) => handleDoubleClick(i)}>
+                          <td scope="row">{Number(i + 1)}</td>
+                          <td>{information.orCode}</td>
+                          <td>{formatDate(Number(information.updatedDate))}</td>
+                          <td>{information.status}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
                 </div>
                 <div className="list-order-pagination">
                   <Pagination param={"type0"} max={500} maxpage={maxpage} />

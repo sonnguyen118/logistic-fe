@@ -60,3 +60,288 @@
     }
   }
 }
+
+// Responsive code for responsive
+// responsive
+@include responsive_200 {
+}
+@include responsive_280 {
+}
+@include responsive_320 {
+  .login {
+    &-wrap {
+      width: 100%;
+      height: calc(100vh - 34px);
+    }
+    width: 98%;
+    margin: 0 auto 0 auto;
+    padding-top: 25%;
+    &-input {
+      &-l {
+        margin-right: 10px;
+      }
+      &-r {
+        margin-left: 10px;
+      }
+    }
+    &-forgotpass {
+      font-size: 13px;
+      font-weight: 500;
+    }
+    &-question {
+      font-size: 13px;
+      font-weight: 500;
+    }
+    &-remember {
+      &-text {
+        font-size: 13px;
+        font-weight: 500;
+        top: 2px;
+      }
+    }
+  }
+}
+
+@include responsive_375 {
+  .login {
+    &-wrap {
+      width: 100%;
+      height: calc(100vh - 34px);
+    }
+    width: 98%;
+    margin: 0 auto 0 auto;
+    padding-top: 25%;
+    &-input {
+      &-l {
+        margin-right: 10px;
+      }
+      &-r {
+        margin-left: 10px;
+      }
+    }
+    &-forgotpass {
+      font-size: 13px;
+      font-weight: 500;
+    }
+    &-question {
+      font-size: 13px;
+      font-weight: 500;
+    }
+    &-remember {
+      &-text {
+        font-size: 13px;
+        font-weight: 500;
+        top: 2px;
+      }
+    }
+  }
+}
+
+@include responsive_456 {
+  .login {
+    &-wrap {
+      width: 100%;
+      height: calc(100vh - 34px);
+    }
+    width: 90%;
+    margin: 0 auto 0 auto;
+    padding-top: 25%;
+    &-input {
+      &-l {
+        margin-right: 10px;
+      }
+      &-r {
+        margin-left: 10px;
+      }
+    }
+    &-forgotpass {
+      font-size: 13px;
+      font-weight: 500;
+    }
+    &-question {
+      font-size: 13px;
+      font-weight: 500;
+    }
+    &-remember {
+      &-text {
+        font-size: 13px;
+        font-weight: 500;
+        top: 2px;
+      }
+    }
+  }
+}
+
+@include responsive_768 {
+  .login {
+    &-wrap {
+      width: 100%;
+      height: calc(100vh - 34px);
+    }
+    width: 60%;
+    margin: 0 auto 0 auto;
+    padding-top: 13%;
+    &-input {
+      &-l {
+        margin-right: 10px;
+      }
+      &-r {
+        margin-left: 10px;
+      }
+    }
+    &-forgotpass {
+      font-size: 14px;
+      font-weight: 500;
+    }
+    &-question {
+      font-size: 14px;
+      font-weight: 500;
+    }
+    &-remember {
+      &-text {
+        font-size: 14px;
+        font-weight: 500;
+        top: 2px;
+      }
+    }
+  }
+}
+@include responsive_1024 {
+  .login {
+    &-wrap {
+      width: 100%;
+      height: calc(100vh - 34px);
+    }
+    width: 50%;
+    margin: 0 auto 0 auto;
+    padding-top: 12%;
+    &-input {
+      &-l {
+        margin-right: 10px;
+      }
+      &-r {
+        margin-left: 10px;
+      }
+    }
+    &-forgotpass {
+      font-size: 14px;
+      font-weight: 500;
+    }
+    &-question {
+      font-size: 14px;
+      font-weight: 500;
+    }
+    &-remember {
+      &-text {
+        font-size: 14px;
+        font-weight: 500;
+        top: 2px;
+      }
+    }
+  }
+}
+
+@include responsive_1200 {
+  .login {
+    &-wrap {
+      width: 100%;
+      height: calc(100vh - 34px);
+    }
+    width: 35%;
+    margin: 0 auto 0 auto;
+    padding-top: 12%;
+    &-input {
+      &-l {
+        margin-right: 10px;
+      }
+      &-r {
+        margin-left: 10px;
+      }
+    }
+    &-forgotpass {
+      font-size: 14px;
+      font-weight: 500;
+    }
+    &-question {
+      font-size: 14px;
+      font-weight: 500;
+    }
+    &-remember {
+      &-text {
+        font-size: 14px;
+        font-weight: 500;
+        top: 2px;
+      }
+    }
+  }
+}
+@include responsive_1440 {
+  .login {
+    &-wrap {
+      width: 100%;
+      height: calc(100vh - 34px);
+    }
+    width: 40%;
+    margin: 0 auto 0 auto;
+    padding-top: 13%;
+    &-input {
+      &-l {
+        margin-right: 10px;
+      }
+      &-r {
+        margin-left: 10px;
+      }
+    }
+    &-forgotpass {
+      font-size: 14px;
+      font-weight: 500;
+    }
+    &-question {
+      font-size: 14px;
+      font-weight: 500;
+    }
+    &-remember {
+      &-text {
+        font-size: 14px;
+        font-weight: 500;
+        top: 2px;
+      }
+    }
+  }
+}
+@include responsive_1650 {
+  .login {
+    &-wrap {
+      width: 100%;
+      height: calc(100vh - 34px);
+    }
+    width: 40%;
+    margin: 0 auto 0 auto;
+    padding-top: 13%;
+    &-input {
+      &-l {
+        margin-right: 10px;
+      }
+      &-r {
+        margin-left: 10px;
+      }
+    }
+    &-forgotpass {
+      font-size: 14px;
+      font-weight: 500;
+    }
+    &-question {
+      font-size: 14px;
+      font-weight: 500;
+    }
+    &-remember {
+      &-text {
+        font-size: 14px;
+        font-weight: 500;
+        top: 2px;
+      }
+    }
+  }
+}
+@include responsive_1900 {
+}

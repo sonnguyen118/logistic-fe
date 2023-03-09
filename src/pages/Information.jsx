@@ -5,6 +5,7 @@ import { Helmet } from "react-helmet";
 import Account from "../components/information/account";
 import Notify from "../components/information/notify";
 import ListOrder from "../components/information/listorder";
+import Slider from "react-slick";
 
 const Information = () => {
   const navigate = useNavigate();
@@ -81,6 +82,13 @@ const Information = () => {
         setNavigation([false, true, false]);
     }
   }, [location.search, location]);
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 2,
+    slidesToScroll: 3,
+  };
 
   const renderContent = () => {
     const pathname = location.pathname;
@@ -108,7 +116,7 @@ const Information = () => {
                 }
                 onClick={() => toggleMenu(1)}
               >
-                Đã nhập kho Trung
+                Đã nhập kho Trung Quốc
               </div>
               <div
                 className={
@@ -118,7 +126,7 @@ const Information = () => {
                 }
                 onClick={() => toggleMenu(2)}
               >
-                Đang vận chuyển đến kho Việt
+                Đang về kho Việt Nam
               </div>
               <div
                 className={
@@ -128,7 +136,7 @@ const Information = () => {
                 }
                 onClick={() => toggleMenu(3)}
               >
-                Đã nhập kho Việt
+                Đã nhập kho Việt Nam
               </div>
               <div
                 className={
@@ -138,8 +146,62 @@ const Information = () => {
                 }
                 onClick={() => toggleMenu(4)}
               >
-                Đã giao
+                Đã trả khách
               </div>
+            </div>
+            <div className="information-right-menu-mobile">
+              <Slider {...settings}>
+                <div
+                  className={
+                    menuStatus[0]
+                      ? "information-right-menu-item information-right-menu-item-activate"
+                      : "information-right-menu-item"
+                  }
+                  onClick={() => toggleMenu(0)}
+                >
+                  Tất cả
+                </div>
+                <div
+                  className={
+                    menuStatus[1]
+                      ? "information-right-menu-item information-right-menu-item-activate"
+                      : "information-right-menu-item"
+                  }
+                  onClick={() => toggleMenu(1)}
+                >
+                  Đã nhập kho Trung Quốc
+                </div>
+                <div
+                  className={
+                    menuStatus[2]
+                      ? "information-right-menu-item information-right-menu-item-activate"
+                      : "information-right-menu-item"
+                  }
+                  onClick={() => toggleMenu(2)}
+                >
+                  Đang về kho Việt Nam
+                </div>
+                <div
+                  className={
+                    menuStatus[3]
+                      ? "information-right-menu-item information-right-menu-item-activate"
+                      : "information-right-menu-item"
+                  }
+                  onClick={() => toggleMenu(3)}
+                >
+                  Đã nhập kho Việt Nam
+                </div>
+                <div
+                  className={
+                    menuStatus[4]
+                      ? "information-right-menu-item information-right-menu-item-activate"
+                      : "information-right-menu-item"
+                  }
+                  onClick={() => toggleMenu(4)}
+                >
+                  Đã trả khách
+                </div>
+              </Slider>
             </div>
             <div className="information-right-search">
               <input
@@ -242,6 +304,63 @@ const Information = () => {
           <Link to={`/information/order-status?all=1`}>
             <span className="list-navigation-text">Tra Cứu</span>
           </Link>
+        </div>
+        <div className="information-user">
+          <div
+            type="button"
+            className="information-user-avatar dropdown-toggle"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"
+            style={{
+              backgroundImage: `url(${backgroundImage})`,
+            }}
+          ></div>
+          <div className="dropdown-menu dropdown-menu-right">
+            <Link
+              to={`/information/account`}
+              className={
+                navigation[0]
+                  ? "information-left-item dropdown-item information-left-item-activate"
+                  : "information-left-item dropdown-item"
+              }
+            >
+              <i className="information-left-item-icon fa-solid fa-user"></i>
+              <span className="information-left-item-text">
+                Tài Khoản Của Tôi
+              </span>
+            </Link>
+            <Link
+              to={`/information/order-status?type0=1`}
+              className={
+                navigation[1]
+                  ? "information-left-item dropdown-item information-left-item-activate"
+                  : "information-left-item dropdown-item"
+              }
+            >
+              <i className="fa-solid fa-truck-fast information-left-item-icon"></i>
+              <span className="information-left-item-text">
+                Tình Trạng Hàng
+              </span>
+            </Link>
+            <Link
+              to={`/information/notify?page=1`}
+              className={
+                navigation[2]
+                  ? "information-left-item dropdown-item information-left-item-activate"
+                  : "information-left-item dropdown-item"
+              }
+            >
+              <i className="information-left-item-icon fa-solid fa-bell"></i>
+              <span className="information-left-item-text">Thông Báo</span>
+            </Link>
+
+            <div className="dropdown-divider" />
+            <Link to={`/`} className="information-left-item dropdown-item">
+              <i className="information-left-item-icon fa-solid fa-right-from-bracket"></i>
+              <span className="information-left-item-text">Đăng xuất</span>
+            </Link>
+          </div>
         </div>
         <div className="information">
           <div className="information-left">

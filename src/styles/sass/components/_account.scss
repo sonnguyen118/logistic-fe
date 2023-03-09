@@ -136,3 +136,221 @@
     }
   }
 }
+
+// responsive
+@include responsive_200 {
+}
+@include responsive_280 {
+}
+@include responsive_320 {
+}
+
+@include responsive_375 {
+}
+
+@include responsive_456 {
+}
+
+@include responsive_768 {
+}
+@include responsive_1024 {
+}
+
+@include responsive_1200 {
+}
+@include responsive_1440 {
+  .information-account {
+    padding: 20px;
+    &-header {
+      padding-bottom: 15px;
+      margin-bottom: 30px;
+      &-title {
+        font-size: 24px;
+        margin-bottom: 9px;
+      }
+      &-sub {
+        font-size: 16px;
+      }
+    }
+    &-main {
+      &-infor {
+        width: 75%;
+        &-left {
+          width: 20%;
+          &-item {
+            font-size: 15px;
+            font-weight: 500;
+            margin-bottom: 20px;
+          }
+        }
+        &-right {
+          width: 80%;
+          margin-left: 30px;
+          &-text {
+            font-size: 15px;
+            font-weight: 600;
+            margin-bottom: 10px;
+          }
+          &-input {
+            width: 70%;
+            padding: 8px 10px;
+            font-size: 15px;
+          }
+          &-email {
+            font-size: 15px;
+            margin-top: 12px;
+            margin-bottom: 20px;
+            font-weight: 500;
+          }
+          &-change {
+            font-size: 13px;
+            margin-left: 5px;
+          }
+          &-sec {
+            margin-top: 1px;
+            &-item {
+              margin-right: 30px;
+              &-radio {
+                width: 18px;
+                height: 18px;
+                margin-right: 8px;
+              }
+              &-text {
+                font-size: 15px;
+              }
+            }
+          }
+          &-date {
+            font-size: 15px;
+            width: 70%;
+            margin-top: 10px;
+            padding: 8px 10px;
+          }
+        }
+      }
+      &-image {
+        padding-left: 30px;
+        &-avtar {
+          margin: 0 auto;
+          width: 120px;
+          height: 120px;
+          border-radius: 50%;
+        }
+        &-name {
+          margin-top: 10px;
+          font-size: 13px;
+        }
+        &-btn {
+          margin: 10px auto 0 auto;
+          width: 100px;
+          font-size: 15px;
+          padding: 3px 12px;
+          border-radius: 3px;
+        }
+        &-text {
+          font-size: 14px;
+          margin-top: 10px;
+        }
+      }
+    }
+  }
+}
+@include responsive_1650 {
+  .information-account {
+    padding: 20px;
+    &-header {
+      padding-bottom: 15px;
+      margin-bottom: 30px;
+      &-title {
+        font-size: 24px;
+        margin-bottom: 9px;
+      }
+      &-sub {
+        font-size: 16px;
+      }
+    }
+    &-main {
+      &-infor {
+        width: 75%;
+        &-left {
+          width: 20%;
+          &-item {
+            font-size: 15px;
+            font-weight: 500;
+            margin-bottom: 20px;
+          }
+        }
+        &-right {
+          width: 80%;
+          margin-left: 30px;
+          &-text {
+            font-size: 15px;
+            font-weight: 600;
+            margin-bottom: 10px;
+          }
+          &-input {
+            width: 70%;
+            padding: 8px 10px;
+            font-size: 15px;
+          }
+          &-email {
+            font-size: 15px;
+            margin-top: 12px;
+            margin-bottom: 20px;
+            font-weight: 500;
+          }
+          &-change {
+            font-size: 13px;
+            margin-left: 5px;
+          }
+          &-sec {
+            margin-top: 1px;
+            &-item {
+              margin-right: 30px;
+              &-radio {
+                width: 18px;
+                height: 18px;
+                margin-right: 8px;
+              }
+              &-text {
+                font-size: 15px;
+              }
+            }
+          }
+          &-date {
+            font-size: 15px;
+            width: 70%;
+            margin-top: 10px;
+            padding: 8px 10px;
+          }
+        }
+      }
+      &-image {
+        padding-left: 30px;
+        &-avtar {
+          margin: 0 auto;
+          width: 120px;
+          height: 120px;
+          border-radius: 50%;
+        }
+        &-name {
+          margin-top: 10px;
+          font-size: 13px;
+        }
+        &-btn {
+          margin: 10px auto 0 auto;
+          width: 100px;
+          font-size: 15px;
+          padding: 3px 12px;
+          border-radius: 3px;
+        }
+        &-text {
+          font-size: 14px;
+          margin-top: 10px;
+        }
+      }
+    }
+  }
+}
+@include responsive_1900 {
+}

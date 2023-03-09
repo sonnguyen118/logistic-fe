@@ -1,15 +1,42 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect } from "react";
 import Layout from "./Layout";
 import { Helmet } from "react-helmet";
 import { Link } from "react-router-dom";
 import { useLocation } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { loginThunk } from "../thunk/authThunks";
+import { registerThunk } from "../thunk/authThunks";
+import { userReceived } from "../actions/authActions";
 
 const Login = () => {
   const [login, setLogin] = useState(true);
   const [resister, setRegister] = useState(false);
-
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(userReceived());
+  }, [dispatch]);
+  const products = useSelector((state) => state.authen.user);
+  console.log(products, "products");
   const [lable, setLable] = useState(null);
   const location = useLocation();
+  const handleLogin = (e) => {
+    e.preventDefault();
+    const userData = {
+      /* Lấy dữ liệu từ form */
+      email: "chidan@gmail.com",
+      password: "123456",
+    };
+    dispatch(loginThunk(userData));
+  };
+  const handleRegister = (e) => {
+    e.preventDefault();
+    const userData = {
+      /* Lấy dữ liệu từ form */
+      username: "12",
+      name: "54",
+    };
+    dispatch(registerThunk(userData));
+  };
 
   useEffect(() => {
     const searchParams = new URLSearchParams(location.search);
@@ -119,6 +146,7 @@ const Login = () => {
                       <button
                         className="w-100 btn btn-lg btn-primary"
                         type="submit"
+                        onClick={(e) => handleLogin(e)}
                       >
                         Đăng nhập
                       </button>
@@ -219,6 +247,7 @@ const Login = () => {
                       <button
                         className="w-100 btn btn-lg btn-primary"
                         type="submit"
+                        onClick={(e) => handleRegister(e)}
                       >
                         Đăng ký
                       </button>

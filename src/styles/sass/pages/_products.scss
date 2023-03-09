@@ -189,3 +189,978 @@
     }
   }
 }
+
+// Responsive code for responsive
+// responsive
+@include responsive_200 {
+}
+@include responsive_280 {
+}
+@include responsive_320 {
+  .products {
+    margin: 70px 2% 0 2%;
+    &-header {
+      padding-bottom: 20px;
+      &-title {
+        font-size: 20px;
+        line-height: 28px;
+        letter-spacing: 2px;
+        font-weight: 700;
+        &-sub {
+          font-size: 12.5px;
+          font-weight: 500;
+          margin-top: 8px;
+        }
+      }
+    }
+    &-navigation {
+      padding: 5px 0;
+      flex-wrap: wrap;
+      a {
+        width: 100%;
+        text-align: center;
+      }
+      &-item {
+        padding: 3px 0;
+        width: 100%;
+        &-icon {
+          font-size: 14px;
+        }
+        &-text {
+          font-size: 13px;
+          margin-left: 8px;
+        }
+      }
+    }
+    &-list {
+      margin-top: 0px;
+      &:hover {
+        .products-list-btn1 {
+          padding: 12px 18px;
+          top: calc(50% - 18px);
+          &-icon {
+            font-size: 20px;
+            top: 2px;
+          }
+        }
+        .products-list-btn2 {
+          padding: 12px 18px;
+          top: calc(50% - 18px);
+          &-icon {
+            font-size: 20px;
+            top: 2px;
+          }
+        }
+      }
+      &-btn1 {
+        padding: 4px 12px;
+        border-radius: 50%;
+        top: calc(50% - 8px);
+        left: 5px;
+        z-index: 50;
+        &-icon {
+          font-size: 12px;
+          top: -1px;
+        }
+      }
+      &-btn2 {
+        padding: 4px 12px;
+        border-radius: 50%;
+        top: calc(50% - 8px);
+        right: 5px;
+        z-index: 50;
+        &-icon {
+          font-size: 12px;
+          top: -1px;
+        }
+      }
+      &-slider {
+        &-wrap {
+          padding: 0 20px;
+        }
+        &-item {
+          &-image {
+            width: 100%;
+            height: 280px;
+          }
+          &-title {
+            font-size: 16px;
+            font-weight: 500;
+            margin-top: 12px;
+          }
+        }
+      }
+    }
+    &-group-btn {
+      margin-top: 50px;
+      display: block;
+      &-item {
+        &-1 {
+          margin: 20px 0px;
+          padding: 6px;
+          width: 100%;
+
+          &-icon {
+          }
+          &-text {
+            margin-left: 12px;
+          }
+        }
+        &-2 {
+          margin: 20px 0px;
+          padding: 6px;
+          width: 100%;
+          text-align: center;
+          &-icon {
+          }
+          &-text {
+            margin-left: 12px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@include responsive_375 {
+  .products {
+    margin: 72px 2% 0 2%;
+    &-header {
+      padding-bottom: 20px;
+      &-title {
+        font-size: 22px;
+        line-height: 30px;
+        letter-spacing: 2px;
+        font-weight: 700;
+        &-sub {
+          font-size: 13px;
+          font-weight: 500;
+          margin-top: 10px;
+        }
+      }
+    }
+    &-navigation {
+      padding: 5px 0;
+      flex-wrap: wrap;
+      a {
+        width: 50%;
+        text-align: center;
+      }
+      &-item {
+        padding: 5px 0;
+        width: 100%;
+        &-icon {
+          font-size: 14px;
+        }
+        &-text {
+          font-size: 13px;
+          margin-left: 8px;
+        }
+      }
+    }
+    &-list {
+      margin-top: -42px;
+      &:hover {
+        .products-list-btn1 {
+          padding: 12px 18px;
+          top: calc(50% - 18px);
+          &-icon {
+            font-size: 20px;
+            top: 2px;
+          }
+        }
+        .products-list-btn2 {
+          padding: 12px 18px;
+          top: calc(50% - 18px);
+          &-icon {
+            font-size: 20px;
+            top: 2px;
+          }
+        }
+      }
+      &-btn1 {
+        padding: 4px 12px;
+        border-radius: 50%;
+        top: calc(50% - 8px);
+        left: 5px;
+        z-index: 50;
+        &-icon {
+          font-size: 12px;
+          top: -1px;
+        }
+      }
+      &-btn2 {
+        padding: 4px 12px;
+        border-radius: 50%;
+        top: calc(50% - 8px);
+        right: 5px;
+        z-index: 50;
+        &-icon {
+          font-size: 12px;
+          top: -1px;
+        }
+      }
+      &-slider {
+        &-wrap {
+          padding: 0 20px;
+        }
+        &-item {
+          &-image {
+            width: 100%;
+            height: 280px;
+          }
+          &-title {
+            font-size: 16px;
+            font-weight: 500;
+            margin-top: 12px;
+          }
+        }
+      }
+    }
+    &-group-btn {
+      margin-top: 50px;
+      display: block;
+      &-item {
+        &-1 {
+          margin: 20px 0px;
+          padding: 6px;
+          width: 100%;
+
+          &-icon {
+          }
+          &-text {
+            margin-left: 12px;
+          }
+        }
+        &-2 {
+          margin: 20px 0px;
+          padding: 6px;
+          width: 100%;
+          text-align: center;
+          &-icon {
+          }
+          &-text {
+            margin-left: 12px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@include responsive_456 {
+  .products {
+    margin: 80px 2% 0 2%;
+    &-header {
+      padding-bottom: 20px;
+      &-title {
+        font-size: 24px;
+        line-height: 30px;
+        letter-spacing: 2px;
+        font-weight: 700;
+        &-sub {
+          font-size: 14px;
+          font-weight: 500;
+          margin-top: 10px;
+        }
+      }
+    }
+    &-navigation {
+      padding: 5px 0;
+      flex-wrap: wrap;
+      a {
+        width: 50%;
+        text-align: center;
+      }
+      &-item {
+        padding: 5px 0;
+        width: 100%;
+        &-icon {
+          font-size: 18px;
+        }
+        &-text {
+          font-size: 15px;
+          margin-left: 8px;
+        }
+      }
+    }
+    &-list {
+      margin-top: -40px;
+      &:hover {
+        .products-list-btn1 {
+          padding: 12px 18px;
+          top: calc(50% - 18px);
+          &-icon {
+            font-size: 20px;
+            top: 2px;
+          }
+        }
+        .products-list-btn2 {
+          padding: 12px 18px;
+          top: calc(50% - 18px);
+          &-icon {
+            font-size: 20px;
+            top: 2px;
+          }
+        }
+      }
+      &-btn1 {
+        padding: 4px 12px;
+        border-radius: 50%;
+        top: calc(50% - 8px);
+        left: 10px;
+        z-index: 50;
+        &-icon {
+          font-size: 12px;
+          top: -1px;
+        }
+      }
+      &-btn2 {
+        padding: 4px 12px;
+        border-radius: 50%;
+        top: calc(50% - 8px);
+        right: 10px;
+        z-index: 50;
+        &-icon {
+          font-size: 12px;
+          top: -1px;
+        }
+      }
+      &-slider {
+        &-wrap {
+          padding: 0 20px;
+        }
+        &-item {
+          &-image {
+            width: 100%;
+            height: 280px;
+          }
+          &-title {
+            font-size: 16px;
+            font-weight: 500;
+            margin-top: 12px;
+          }
+        }
+      }
+    }
+    &-group-btn {
+      margin-top: 50px;
+      display: block;
+      &-item {
+        &-1 {
+          margin: 20px 0px;
+          padding: 6px;
+          width: 100%;
+
+          &-icon {
+          }
+          &-text {
+            margin-left: 12px;
+          }
+        }
+        &-2 {
+          margin: 20px 0px;
+          padding: 6px;
+          width: 100%;
+          text-align: center;
+          &-icon {
+          }
+          &-text {
+            margin-left: 12px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@include responsive_768 {
+  .products {
+    margin: 0px 2% 0 2%;
+    &-header {
+      padding-bottom: 20px;
+      &-title {
+        font-size: 28px;
+        letter-spacing: 2px;
+        font-weight: 700;
+        &-sub {
+          font-size: 16px;
+          font-weight: 500;
+          margin-top: 12px;
+        }
+      }
+    }
+    &-navigation {
+      padding: 5px 0;
+      flex-wrap: wrap;
+      a {
+        width: 50%;
+        text-align: center;
+      }
+      &-item {
+        padding: 5px 0;
+        width: 100%;
+        &-icon {
+          font-size: 18px;
+        }
+        &-text {
+          font-size: 15px;
+          margin-left: 8px;
+        }
+      }
+    }
+    &-list {
+      margin-top: 10px;
+      &:hover {
+        .products-list-btn1 {
+          padding: 12px 18px;
+          top: calc(50% - 18px);
+          &-icon {
+            font-size: 20px;
+            top: 2px;
+          }
+        }
+        .products-list-btn2 {
+          padding: 12px 18px;
+          top: calc(50% - 18px);
+          &-icon {
+            font-size: 20px;
+            top: 2px;
+          }
+        }
+      }
+      &-btn1 {
+        padding: 4px 12px;
+        border-radius: 50%;
+        top: calc(50% - 8px);
+        left: -10px;
+        z-index: 50;
+        &-icon {
+          font-size: 12px;
+          top: -1px;
+        }
+      }
+      &-btn2 {
+        padding: 4px 12px;
+        border-radius: 50%;
+        top: calc(50% - 8px);
+        right: -10px;
+        z-index: 50;
+        &-icon {
+          font-size: 12px;
+          top: -1px;
+        }
+      }
+      &-slider {
+        &-wrap {
+          padding: 0 20px;
+        }
+        &-item {
+          &-image {
+            width: 100%;
+            height: 280px;
+          }
+          &-title {
+            font-size: 16px;
+            font-weight: 500;
+            margin-top: 12px;
+          }
+        }
+      }
+    }
+    &-group-btn {
+      margin-top: 50px;
+      &-item {
+        &-1 {
+          margin: 20px 50px;
+          padding: 6px;
+          width: 400px;
+
+          &-icon {
+          }
+          &-text {
+            margin-left: 12px;
+          }
+        }
+        &-2 {
+          margin: 20px 50px;
+          padding: 6px;
+          width: 400px;
+          text-align: center;
+          &-icon {
+          }
+          &-text {
+            margin-left: 12px;
+          }
+        }
+      }
+    }
+  }
+}
+@include responsive_1024 {
+  .products {
+    margin: 0px 2% 0 2%;
+    &-header {
+      padding-bottom: 20px;
+      &-title {
+        font-size: 28px;
+        letter-spacing: 2px;
+        font-weight: 700;
+        &-sub {
+          font-size: 16px;
+          font-weight: 500;
+          margin-top: 12px;
+        }
+      }
+    }
+    &-navigation {
+      padding: 15px 0;
+      &-item {
+        &-icon {
+          font-size: 18px;
+        }
+        &-text {
+          font-size: 15px;
+          margin-left: 8px;
+        }
+      }
+    }
+    &-list {
+      margin-top: 20px;
+      &:hover {
+        .products-list-btn1 {
+          padding: 12px 18px;
+          top: calc(50% - 18px);
+          &-icon {
+            font-size: 20px;
+            top: 2px;
+          }
+        }
+        .products-list-btn2 {
+          padding: 12px 18px;
+          top: calc(50% - 18px);
+          &-icon {
+            font-size: 20px;
+            top: 2px;
+          }
+        }
+      }
+      &-btn1 {
+        padding: 4px 12px;
+        border-radius: 50%;
+        top: calc(50% - 8px);
+        left: -20px;
+        z-index: 50;
+        &-icon {
+          font-size: 12px;
+          top: -1px;
+        }
+      }
+      &-btn2 {
+        padding: 4px 12px;
+        border-radius: 50%;
+        top: calc(50% - 8px);
+        right: -20px;
+        z-index: 50;
+        &-icon {
+          font-size: 12px;
+          top: -1px;
+        }
+      }
+      &-slider {
+        &-wrap {
+          padding: 0 20px;
+        }
+        &-item {
+          &-image {
+            width: 100%;
+            height: 280px;
+          }
+          &-title {
+            font-size: 16px;
+            font-weight: 500;
+            margin-top: 12px;
+          }
+        }
+      }
+    }
+    &-group-btn {
+      margin-top: 50px;
+      &-item {
+        &-1 {
+          margin: 20px 50px;
+          padding: 6px;
+          width: 400px;
+
+          &-icon {
+          }
+          &-text {
+            margin-left: 12px;
+          }
+        }
+        &-2 {
+          margin: 20px 50px;
+          padding: 6px;
+          width: 400px;
+          text-align: center;
+          &-icon {
+          }
+          &-text {
+            margin-left: 12px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@include responsive_1200 {
+  .products {
+    margin: 0px 2% 0 2%;
+    &-header {
+      padding-bottom: 20px;
+      &-title {
+        font-size: 30px;
+        letter-spacing: 2px;
+        font-weight: 700;
+        &-sub {
+          font-size: 16px;
+          font-weight: 500;
+          margin-top: 12px;
+        }
+      }
+    }
+    &-navigation {
+      padding: 20px 0;
+      &-item {
+        &-icon {
+          font-size: 18px;
+        }
+        &-text {
+          font-size: 15px;
+          margin-left: 8px;
+        }
+      }
+    }
+    &-list {
+      margin-top: 40px;
+      &:hover {
+        .products-list-btn1 {
+          padding: 12px 18px;
+          top: calc(50% - 18px);
+          &-icon {
+            font-size: 20px;
+            top: 2px;
+          }
+        }
+        .products-list-btn2 {
+          padding: 12px 18px;
+          top: calc(50% - 18px);
+          &-icon {
+            font-size: 20px;
+            top: 2px;
+          }
+        }
+      }
+      &-btn1 {
+        padding: 4px 12px;
+        border-radius: 50%;
+        top: calc(50% - 8px);
+        left: -20px;
+        z-index: 50;
+        &-icon {
+          font-size: 12px;
+          top: -1px;
+        }
+      }
+      &-btn2 {
+        padding: 4px 12px;
+        border-radius: 50%;
+        top: calc(50% - 8px);
+        right: -20px;
+        z-index: 50;
+        &-icon {
+          font-size: 12px;
+          top: -1px;
+        }
+      }
+      &-slider {
+        &-wrap {
+          padding: 0 20px;
+        }
+        &-item {
+          &-image {
+            width: 100%;
+            height: 280px;
+          }
+          &-title {
+            font-size: 16px;
+            font-weight: 500;
+            margin-top: 12px;
+          }
+        }
+      }
+    }
+    &-group-btn {
+      margin-top: 60px;
+      &-item {
+        &-1 {
+          margin: 20px 50px;
+          padding: 6px;
+          width: 400px;
+
+          &-icon {
+          }
+          &-text {
+            margin-left: 12px;
+          }
+        }
+        &-2 {
+          margin: 20px 50px;
+          padding: 6px;
+          width: 400px;
+          text-align: center;
+          &-icon {
+          }
+          &-text {
+            margin-left: 12px;
+          }
+        }
+      }
+    }
+  }
+}
+@include responsive_1440 {
+  .products {
+    margin: 0px 2% 0 2%;
+    &-header {
+      padding-bottom: 20px;
+      &-title {
+        font-size: 30px;
+        letter-spacing: 2px;
+        font-weight: 700;
+        &-sub {
+          font-size: 16px;
+          font-weight: 500;
+          margin-top: 12px;
+        }
+      }
+    }
+    &-navigation {
+      padding: 20px 0;
+      &-item {
+        &-icon {
+          font-size: 18px;
+        }
+        &-text {
+          font-size: 15px;
+          margin-left: 8px;
+        }
+      }
+    }
+    &-list {
+      margin-top: 40px;
+      &:hover {
+        .products-list-btn1 {
+          padding: 12px 18px;
+          top: calc(50% - 18px);
+          &-icon {
+            font-size: 20px;
+            top: 2px;
+          }
+        }
+        .products-list-btn2 {
+          padding: 12px 18px;
+          top: calc(50% - 18px);
+          &-icon {
+            font-size: 20px;
+            top: 2px;
+          }
+        }
+      }
+      &-btn1 {
+        padding: 4px 12px;
+        border-radius: 50%;
+        top: calc(50% - 8px);
+        left: -20px;
+        z-index: 50;
+        &-icon {
+          font-size: 12px;
+          top: -1px;
+        }
+      }
+      &-btn2 {
+        padding: 4px 12px;
+        border-radius: 50%;
+        top: calc(50% - 8px);
+        right: -20px;
+        z-index: 50;
+        &-icon {
+          font-size: 12px;
+          top: -1px;
+        }
+      }
+      &-slider {
+        &-wrap {
+          padding: 0 20px;
+        }
+        &-item {
+          &-image {
+            width: 100%;
+            height: 280px;
+          }
+          &-title {
+            font-size: 16px;
+            font-weight: 500;
+            margin-top: 12px;
+          }
+        }
+      }
+    }
+    &-group-btn {
+      margin-top: 60px;
+      &-item {
+        &-1 {
+          margin: 20px 50px;
+          padding: 6px;
+          width: 400px;
+
+          &-icon {
+          }
+          &-text {
+            margin-left: 12px;
+          }
+        }
+        &-2 {
+          margin: 20px 50px;
+          padding: 6px;
+          width: 400px;
+          text-align: center;
+          &-icon {
+          }
+          &-text {
+            margin-left: 12px;
+          }
+        }
+      }
+    }
+  }
+}
+@include responsive_1650 {
+  .products {
+    margin: 0px 7% 0 7%;
+    &-header {
+      padding-bottom: 20px;
+      &-title {
+        font-size: 30px;
+        letter-spacing: 2px;
+        font-weight: 700;
+        &-sub {
+          font-size: 16px;
+          font-weight: 500;
+          margin-top: 12px;
+        }
+      }
+    }
+    &-navigation {
+      padding: 20px 0;
+      &-item {
+        &-icon {
+          font-size: 18px;
+        }
+        &-text {
+          font-size: 15px;
+          margin-left: 8px;
+        }
+      }
+    }
+    &-list {
+      margin-top: 40px;
+      &:hover {
+        .products-list-btn1 {
+          padding: 12px 18px;
+          top: calc(50% - 18px);
+          &-icon {
+            font-size: 20px;
+            top: 2px;
+          }
+        }
+        .products-list-btn2 {
+          padding: 12px 18px;
+          top: calc(50% - 18px);
+          &-icon {
+            font-size: 20px;
+            top: 2px;
+          }
+        }
+      }
+      &-btn1 {
+        padding: 4px 12px;
+        border-radius: 50%;
+        top: calc(50% - 8px);
+        left: -20px;
+        z-index: 50;
+        &-icon {
+          font-size: 12px;
+          top: -1px;
+        }
+      }
+      &-btn2 {
+        padding: 4px 12px;
+        border-radius: 50%;
+        top: calc(50% - 8px);
+        right: -20px;
+        z-index: 50;
+        &-icon {
+          font-size: 12px;
+          top: -1px;
+        }
+      }
+      &-slider {
+        &-wrap {
+          padding: 0 20px;
+        }
+        &-item {
+          &-image {
+            width: 100%;
+            height: 280px;
+          }
+          &-title {
+            font-size: 16px;
+            font-weight: 500;
+            margin-top: 12px;
+          }
+        }
+      }
+    }
+    &-group-btn {
+      margin-top: 60px;
+      &-item {
+        &-1 {
+          margin: 20px 50px;
+          padding: 6px;
+          width: 400px;
+
+          &-icon {
+          }
+          &-text {
+            margin-left: 12px;
+          }
+        }
+        &-2 {
+          margin: 20px 50px;
+          padding: 6px;
+          width: 400px;
+          text-align: center;
+          &-icon {
+          }
+          &-text {
+            margin-left: 12px;
+          }
+        }
+      }
+    }
+  }
+}
+@include responsive_1900 {
+}

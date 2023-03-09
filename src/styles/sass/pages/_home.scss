@@ -19,7 +19,7 @@
     position: absolute;
     width: 100%;
     height: calc(100% - 35px);
-    background-color: rgba(224, 221, 221, 0.11);
+    background-color: rgba(224, 221, 221, 0.22);
     top: 35px;
     left: 0;
     &-header {
@@ -192,6 +192,7 @@
 @include responsive_320 {
   .home {
     height: 100vh;
+    overflow: hidden;
     top: 0px;
     left: 0;
     &-video {
@@ -246,6 +247,7 @@
 @include responsive_375 {
   .home {
     height: calc(100vh);
+    overflow: hidden;
     top: 0px;
     left: 0;
     &-video {
@@ -262,7 +264,7 @@
       top: 0;
       left: 0;
       &-header {
-        margin-top: 17vh;
+        margin-top: 31vh;
         font-size: 16px;
         line-height: 20px;
         font-weight: 300;
@@ -316,7 +318,7 @@
       top: 0;
       left: 0;
       &-header {
-        margin-top: 20vh;
+        margin-top: 30vh;
         font-size: 18px;
         line-height: 20px;
         font-weight: 300;

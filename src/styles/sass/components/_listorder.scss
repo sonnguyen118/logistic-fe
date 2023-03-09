@@ -17,93 +17,53 @@
       padding-bottom: 20px;
     }
   }
-  &-header {
-    display: flex;
-    align-items: center;
+  &-table {
+    &-wrap {
+      height: 50vh !important;
+      overflow-y: scroll !important;
+    }
     width: 100%;
-    border-bottom: 1px solid #ededed;
-    padding-bottom: 15px;
-    margin-bottom: 20px;
-    &-item {
-      font-size: 16px;
-      font-weight: 500;
-      color: $color-primary;
-      &:nth-child(1) {
-        width: 8%;
-        text-align: center;
-      }
-      &:nth-child(2) {
-        width: 18%;
-        text-align: center;
-      }
-      &:nth-child(3) {
-        width: 24%;
-        text-align: center;
-      }
-      &:nth-child(4) {
-        width: 15%;
-        text-align: center;
-      }
-      &:nth-child(5) {
-        width: 15%;
-        text-align: center;
-      }
-      &:nth-child(6) {
-        width: 20%;
-        text-align: center;
+    thead {
+      width: 100%;
+      tr {
+        th {
+          text-align: center;
+          &:nth-child(1) {
+            width: 8%;
+          }
+          &:nth-child(2) {
+            width: 30%;
+          }
+          &:nth-child(3) {
+            width: 20%;
+          }
+          &:nth-child(4) {
+            width: 42%;
+          }
+        }
       }
     }
-  }
-  &-wrap {
-    height: 48vh;
-    overflow: scroll;
-  }
-  &-item {
-    display: flex;
-    align-items: center;
-    width: 100%;
-    transition: all 0.2s ease-in-out;
-    padding: 12px 0;
-    &:hover {
-      cursor: pointer;
-      background-color: $color-primary;
-      transition: all 0.2s linear;
-      .list-order-item-infor {
-        color: $color-yellow;
-        transition: all 0.2s linear;
-      }
-    }
-    &-infor {
-      font-size: 14px;
-      color: $color-primary;
-      transition: all 0.2s ease-in-out;
-      &:nth-child(1) {
-        width: 8%;
-        text-align: center;
-      }
-      &:nth-child(2) {
-        width: 18%;
-        text-align: center;
-      }
-      &:nth-child(3) {
-        width: 24%;
-        text-align: center;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-      }
-      &:nth-child(4) {
-        width: 15%;
-        text-align: center;
-      }
-      &:nth-child(5) {
-        width: 15%;
-        text-align: center;
-      }
-      &:nth-child(6) {
-        width: 20%;
-        text-align: center;
-        font-weight: 600;
+    tbody {
+      width: 100%;
+      tr {
+        width: 100%;
+        td {
+          text-align: center;
+          &:nth-child(1) {
+            width: 8%;
+          }
+          &:nth-child(2) {
+            width: 30%;
+          }
+          &:nth-child(3) {
+            width: 20%;
+          }
+          &:nth-child(4) {
+            width: 42%;
+            font-weight: 600;
+            color: $color-primary;
+          }
+        }
       }
     }
   }
@@ -127,4 +87,702 @@
       font-size: 15px;
     }
   }
+}
+
+// responsive
+@include responsive_200 {
+}
+@include responsive_280 {
+}
+@include responsive_320 {
+  .list-order {
+    padding: 10px;
+    &-none {
+      &-image {
+        background-position: 50%;
+        width: 300px;
+        height: 300px;
+      }
+      &-text {
+        margin-top: 0px;
+        font-size: 15px;
+        padding-bottom: 20px;
+      }
+    }
+    &-table {
+      &-wrap {
+        height: auto !important;
+        overflow-y: scroll !important;
+        overflow-x: hidden !important;
+      }
+      width: 100%;
+      thead {
+        tr {
+          th {
+            text-align: center;
+            &:nth-child(1) {
+              width: 2%;
+              font-size: 13px;
+            }
+            &:nth-child(2) {
+              width: 20%;
+              font-size: 13px;
+            }
+            &:nth-child(3) {
+              width: 20%;
+              font-size: 13px;
+            }
+            &:nth-child(4) {
+              width: 60%;
+              font-size: 13px;
+            }
+          }
+        }
+      }
+      tbody {
+        width: 100%;
+        tr {
+          width: 100%;
+          td {
+            text-align: center;
+            &:nth-child(1) {
+              width: 2%;
+              font-size: 8px;
+            }
+            &:nth-child(2) {
+              width: 20%;
+              font-size: 8px;
+            }
+            &:nth-child(3) {
+              width: 20%;
+              font-size: 8px;
+            }
+            &:nth-child(4) {
+              width: 60% !important;
+              font-size: 8px;
+              font-weight: 600;
+              color: $color-primary;
+            }
+          }
+        }
+      }
+    }
+    &-pagination {
+      display: block;
+      margin-top: 10px;
+      margin-left: 2%;
+      padding: 15px 30px 0 30px;
+    }
+    &-search {
+      margin-top: 10px;
+      justify-content: center;
+      margin-bottom: 80px;
+      &-title {
+        font-size: 14px;
+        width: 160px;
+      }
+      &-input {
+        width: 80px;
+        font-size: 15px;
+      }
+    }
+  }
+}
+
+@include responsive_375 {
+  .list-order {
+    padding: 10px;
+    &-none {
+      &-image {
+        background-position: 50%;
+        width: 300px;
+        height: 300px;
+      }
+      &-text {
+        margin-top: 0px;
+        font-size: 15px;
+        padding-bottom: 20px;
+      }
+    }
+    &-table {
+      &-wrap {
+        height: auto !important;
+        overflow-y: scroll !important;
+        overflow-x: hidden !important;
+      }
+      width: 100%;
+      thead {
+        tr {
+          th {
+            text-align: center;
+            &:nth-child(1) {
+              width: 2%;
+              font-size: 13px;
+            }
+            &:nth-child(2) {
+              width: 20%;
+              font-size: 13px;
+            }
+            &:nth-child(3) {
+              width: 20%;
+              font-size: 13px;
+            }
+            &:nth-child(4) {
+              width: 60%;
+              font-size: 13px;
+            }
+          }
+        }
+      }
+      tbody {
+        width: 100%;
+        tr {
+          width: 100%;
+          td {
+            text-align: center;
+            &:nth-child(1) {
+              width: 2%;
+              font-size: 9px;
+            }
+            &:nth-child(2) {
+              width: 20%;
+              font-size: 9px;
+            }
+            &:nth-child(3) {
+              width: 20%;
+              font-size: 9px;
+            }
+            &:nth-child(4) {
+              width: 60% !important;
+              font-size: 9px;
+              font-weight: 600;
+              color: $color-primary;
+            }
+          }
+        }
+      }
+    }
+    &-pagination {
+      display: block;
+      margin-top: 10px;
+      margin-left: 2%;
+      padding: 15px 30px 0 30px;
+    }
+    &-search {
+      margin-top: 10px;
+      justify-content: center;
+      margin-bottom: 80px;
+      &-title {
+        font-size: 14px;
+        width: 160px;
+      }
+      &-input {
+        width: 80px;
+        font-size: 15px;
+      }
+    }
+  }
+}
+
+@include responsive_456 {
+  .list-order {
+    padding: 10px;
+    &-none {
+      &-image {
+        background-position: 50%;
+        width: 300px;
+        height: 300px;
+      }
+      &-text {
+        margin-top: 0px;
+        font-size: 15px;
+        padding-bottom: 20px;
+      }
+    }
+    &-table {
+      &-wrap {
+        height: auto !important;
+        overflow-y: scroll !important;
+        overflow-x: hidden !important;
+      }
+      width: 100%;
+      thead {
+        tr {
+          th {
+            text-align: center;
+            &:nth-child(1) {
+              width: 2%;
+              font-size: 14px;
+            }
+            &:nth-child(2) {
+              width: 20%;
+              font-size: 14px;
+            }
+            &:nth-child(3) {
+              width: 20%;
+              font-size: 14px;
+            }
+            &:nth-child(4) {
+              width: 60%;
+              font-size: 14px;
+            }
+          }
+        }
+      }
+      tbody {
+        width: 100%;
+        tr {
+          width: 100%;
+          td {
+            text-align: center;
+            &:nth-child(1) {
+              width: 2%;
+              font-size: 11px;
+            }
+            &:nth-child(2) {
+              width: 20%;
+              font-size: 11px;
+            }
+            &:nth-child(3) {
+              width: 20%;
+              font-size: 10px;
+            }
+            &:nth-child(4) {
+              width: 60% !important;
+              font-size: 11px;
+              font-weight: 600;
+              color: $color-primary;
+            }
+          }
+        }
+      }
+    }
+    &-pagination {
+      display: block;
+      margin-top: 10px;
+      margin-left: 30px;
+      padding: 15px 30px 0 30px;
+    }
+    &-search {
+      margin-top: 10px;
+      justify-content: center;
+      &-title {
+        font-size: 14px;
+        width: 160px;
+      }
+      &-input {
+        width: 80px;
+        font-size: 15px;
+      }
+    }
+  }
+}
+
+@include responsive_768 {
+  .list-order {
+    padding: 20px;
+    &-none {
+      &-image {
+        background-position: 50%;
+        width: 300px;
+        height: 300px;
+      }
+      &-text {
+        margin-top: 0px;
+        font-size: 15px;
+        padding-bottom: 20px;
+      }
+    }
+    &-table {
+      &-wrap {
+        height: 45vh !important;
+        overflow-y: scroll !important;
+      }
+      width: 100%;
+      thead {
+        width: 100%;
+        tr {
+          th {
+            text-align: center;
+            &:nth-child(1) {
+              width: 8%;
+            }
+            &:nth-child(2) {
+              width: 30%;
+            }
+            &:nth-child(3) {
+              width: 20%;
+            }
+            &:nth-child(4) {
+              width: 42%;
+            }
+          }
+        }
+      }
+      tbody {
+        width: 100%;
+        tr {
+          width: 100%;
+          td {
+            text-align: center;
+            &:nth-child(1) {
+              width: 8%;
+            }
+            &:nth-child(2) {
+              width: 30%;
+            }
+            &:nth-child(3) {
+              width: 20%;
+            }
+            &:nth-child(4) {
+              width: 42%;
+              font-weight: 600;
+              color: $color-primary;
+            }
+          }
+        }
+      }
+    }
+    &-pagination {
+      margin-top: 20px;
+      padding: 20px 40px 0 40px;
+    }
+    &-search {
+      &-title {
+        font-size: 14px;
+        width: 160px;
+      }
+      &-input {
+        width: 80px;
+        font-size: 15px;
+      }
+    }
+  }
+}
+@include responsive_1024 {
+  .list-order {
+    padding: 20px;
+    &-none {
+      &-image {
+        background-position: 50%;
+        width: 300px;
+        height: 300px;
+      }
+      &-text {
+        margin-top: 0px;
+        font-size: 15px;
+        padding-bottom: 20px;
+      }
+    }
+    &-table {
+      &-wrap {
+        height: 57vh !important;
+        overflow-y: scroll !important;
+      }
+      width: 100%;
+      thead {
+        width: 100%;
+        tr {
+          th {
+            text-align: center;
+            &:nth-child(1) {
+              width: 8%;
+            }
+            &:nth-child(2) {
+              width: 30%;
+            }
+            &:nth-child(3) {
+              width: 20%;
+            }
+            &:nth-child(4) {
+              width: 42%;
+            }
+          }
+        }
+      }
+      tbody {
+        width: 100%;
+        tr {
+          width: 100%;
+          td {
+            text-align: center;
+            &:nth-child(1) {
+              width: 8%;
+            }
+            &:nth-child(2) {
+              width: 30%;
+            }
+            &:nth-child(3) {
+              width: 20%;
+            }
+            &:nth-child(4) {
+              width: 42%;
+              font-weight: 600;
+              color: $color-primary;
+            }
+          }
+        }
+      }
+    }
+    &-pagination {
+      margin-top: 20px;
+      padding: 20px 40px 0 40px;
+    }
+    &-search {
+      &-title {
+        font-size: 14px;
+        width: 160px;
+      }
+      &-input {
+        width: 80px;
+        font-size: 15px;
+      }
+    }
+  }
+}
+
+@include responsive_1200 {
+  .list-order {
+    padding: 20px;
+    &-none {
+      &-image {
+        background-position: 50%;
+        width: 300px;
+        height: 300px;
+      }
+      &-text {
+        margin-top: 0px;
+        font-size: 15px;
+        padding-bottom: 20px;
+      }
+    }
+    &-table {
+      &-wrap {
+        height: 54vh !important;
+        overflow-y: scroll !important;
+      }
+      width: 100%;
+      thead {
+        width: 100%;
+        tr {
+          th {
+            text-align: center;
+            &:nth-child(1) {
+              width: 8%;
+            }
+            &:nth-child(2) {
+              width: 30%;
+            }
+            &:nth-child(3) {
+              width: 20%;
+            }
+            &:nth-child(4) {
+              width: 42%;
+            }
+          }
+        }
+      }
+      tbody {
+        width: 100%;
+        tr {
+          width: 100%;
+          td {
+            text-align: center;
+            &:nth-child(1) {
+              width: 8%;
+            }
+            &:nth-child(2) {
+              width: 30%;
+            }
+            &:nth-child(3) {
+              width: 20%;
+            }
+            &:nth-child(4) {
+              width: 42%;
+              font-weight: 600;
+              color: $color-primary;
+            }
+          }
+        }
+      }
+    }
+    &-pagination {
+      margin-top: 20px;
+      padding: 20px 40px 0 40px;
+    }
+    &-search {
+      &-title {
+        font-size: 14px;
+        width: 160px;
+      }
+      &-input {
+        width: 80px;
+        font-size: 15px;
+      }
+    }
+  }
+}
+@include responsive_1440 {
+  .list-order {
+    padding: 20px;
+    &-none {
+      &-image {
+        background-position: 50%;
+        width: 300px;
+        height: 300px;
+      }
+      &-text {
+        margin-top: 0px;
+        font-size: 15px;
+        padding-bottom: 20px;
+      }
+    }
+    &-table {
+      &-wrap {
+        height: 46vh !important;
+        overflow-y: scroll !important;
+      }
+      width: 100%;
+      thead {
+        width: 100%;
+        tr {
+          th {
+            text-align: center;
+            &:nth-child(1) {
+              width: 8%;
+            }
+            &:nth-child(2) {
+              width: 30%;
+            }
+            &:nth-child(3) {
+              width: 20%;
+            }
+            &:nth-child(4) {
+              width: 42%;
+            }
+          }
+        }
+      }
+      tbody {
+        width: 100%;
+        tr {
+          width: 100%;
+          td {
+            text-align: center;
+            &:nth-child(1) {
+              width: 8%;
+            }
+            &:nth-child(2) {
+              width: 30%;
+            }
+            &:nth-child(3) {
+              width: 20%;
+            }
+            &:nth-child(4) {
+              width: 42%;
+              font-weight: 600;
+              color: $color-primary;
+            }
+          }
+        }
+      }
+    }
+    &-pagination {
+      margin-top: 20px;
+      padding: 20px 40px 0 40px;
+    }
+    &-search {
+      &-title {
+        font-size: 14px;
+        width: 160px;
+      }
+      &-input {
+        width: 80px;
+        font-size: 15px;
+      }
+    }
+  }
+}
+@include responsive_1650 {
+  .list-order {
+    padding: 20px;
+    &-none {
+      &-image {
+        background-position: 50%;
+        width: 300px;
+        height: 300px;
+      }
+      &-text {
+        margin-top: 0px;
+        font-size: 15px;
+        padding-bottom: 20px;
+      }
+    }
+    &-table {
+      &-wrap {
+        height: 46vh !important;
+        overflow-y: scroll !important;
+      }
+      width: 100%;
+      thead {
+        width: 100%;
+        tr {
+          th {
+            text-align: center;
+            &:nth-child(1) {
+              width: 8%;
+            }
+            &:nth-child(2) {
+              width: 30%;
+            }
+            &:nth-child(3) {
+              width: 20%;
+            }
+            &:nth-child(4) {
+              width: 42%;
+            }
+          }
+        }
+      }
+      tbody {
+        width: 100%;
+        tr {
+          width: 100%;
+          td {
+            text-align: center;
+            &:nth-child(1) {
+              width: 8%;
+            }
+            &:nth-child(2) {
+              width: 30%;
+            }
+            &:nth-child(3) {
+              width: 20%;
+            }
+            &:nth-child(4) {
+              width: 42%;
+              font-weight: 600;
+              color: $color-primary;
+            }
+          }
+        }
+      }
+    }
+    &-pagination {
+      margin-top: 20px;
+      padding: 20px 40px 0 40px;
+    }
+    &-search {
+      &-title {
+        font-size: 14px;
+        width: 160px;
+      }
+      &-input {
+        width: 80px;
+        font-size: 15px;
+      }
+    }
+  }
+}
+@include responsive_1900 {
 }

@@ -6,12 +6,13 @@ const Navbar = () => {
     "https://lephuonglogistics.com/site/images/logo-lephuong-1.png"
   );
   const [menu, setMenu] = useState([
-    { title: "Biểu phí", link: "/" },
+    { title: "Trang chủ", link: "/" },
+    { title: "Biểu phí", link: "/tariffs" },
     { title: "Các sản phẩm", link: "/products" },
-    { title: "Giới thiệu", link: "/" },
-    { title: "Chính sách", link: "/" },
-    { title: "Hướng dẫn", link: "/" },
-    { title: "Thông báo", link: "/" },
+    { title: "Giới thiệu", link: "/about" },
+    { title: "Chính sách", link: "/policys" },
+    { title: "Hướng dẫn", link: "/instructs" },
+    { title: "Thông báo", link: "/notification" },
   ]);
   return (
     <nav className="navbar-pc">

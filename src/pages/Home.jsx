@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import Layout from "../components/Layout";
 import { Helmet } from "react-helmet";
+import Toc from "react-toc";
 
 const Home = () => {
   const [videoUrl, setVideoUrl] = useState("/Logisticsfootage.mp4");
@@ -14,6 +15,7 @@ const Home = () => {
           Trang chủ | LÊ PHƯƠNG - VẬN CHUYỂN VÀ ĐẶT HÀNG TRUNG - VIỆT
         </title>
       </Helmet>
+      <Toc include={["h1", "h2", "h3", "h4", ".home-content"]} />
       <Layout>
         <div className="home">
           {videoUrl && imageUrl !== undefined ? (
@@ -26,6 +28,7 @@ const Home = () => {
                     autoPlay={true}
                     loop
                     muted
+                    playsInline
                   >
                     <source src={videoUrl} type="video/mp4" />
                   </video>
