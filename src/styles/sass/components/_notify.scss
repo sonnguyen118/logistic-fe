@@ -115,3 +115,592 @@
     }
   }
 }
+
+// responsive
+@include responsive_200 {
+}
+@include responsive_280 {
+}
+@include responsive_320 {
+  .information-notify {
+    padding: 8px;
+    &-header {
+      padding-bottom: 10px;
+      margin-bottom: 20px;
+      &-title {
+        font-size: 16px;
+        font-weight: bold;
+      }
+      &-sub {
+        font-size: 13px;
+        font-weight: 400;
+      }
+    }
+    &-main {
+      &-embty {
+        width: 180px;
+        height: 180px;
+        margin: 10px auto;
+        &-text {
+          font-size: 13px;
+          font-weight: 500;
+          margin: 5px 0;
+        }
+        &-sub {
+          font-size: 13px;
+          font-weight: 300;
+          text-align: center;
+        }
+      }
+      &-group {
+        &-item {
+          padding: 8px 5px;
+          border-bottom: 1px solid #ededed;
+          &-image {
+            width: 60px;
+            height: 60px;
+          }
+          &-infor {
+            margin: 0 10px;
+            width: 70%;
+            &-title {
+              font-size: 17px;
+              font-weight: 500;
+            }
+            &-content {
+              font-size: 13px;
+              max-height: 40px;
+              line-height: 20px;
+              -webkit-line-clamp: 2;
+              margin-top: 5px;
+            }
+            &-time {
+              font-weight: 600;
+              font-size: 15px;
+              margin-top: 8px;
+            }
+          }
+          &-btn {
+            display: none;
+          }
+        }
+      }
+      &-pagination {
+        margin-top: 30px;
+      }
+    }
+  }
+}
+
+@include responsive_375 {
+  .information-notify {
+    padding: 8px;
+    &-header {
+      padding-bottom: 10px;
+      margin-bottom: 20px;
+      &-title {
+        font-size: 16px;
+        font-weight: bold;
+      }
+      &-sub {
+        font-size: 13px;
+        font-weight: 400;
+      }
+    }
+    &-main {
+      &-embty {
+        width: 180px;
+        height: 180px;
+        margin: 10px auto;
+        &-text {
+          font-size: 13px;
+          font-weight: 500;
+          margin: 5px 0;
+        }
+        &-sub {
+          font-size: 13px;
+          font-weight: 300;
+          text-align: center;
+        }
+      }
+      &-group {
+        &-item {
+          padding: 8px 5px;
+          border-bottom: 1px solid #ededed;
+          &-image {
+            width: 60px;
+            height: 60px;
+          }
+          &-infor {
+            margin: 0 10px;
+            width: 70%;
+            &-title {
+              font-size: 17px;
+              font-weight: 500;
+            }
+            &-content {
+              font-size: 13px;
+              max-height: 40px;
+              line-height: 20px;
+              -webkit-line-clamp: 2;
+              margin-top: 5px;
+            }
+            &-time {
+              font-weight: 600;
+              font-size: 15px;
+              margin-top: 8px;
+            }
+          }
+          &-btn {
+            display: none;
+          }
+        }
+      }
+      &-pagination {
+        margin-top: 30px;
+      }
+    }
+  }
+}
+
+@include responsive_456 {
+  .information-notify {
+    padding: 15px;
+    &-header {
+      padding-bottom: 10px;
+      margin-bottom: 20px;
+      &-title {
+        font-size: 20px;
+        font-weight: bold;
+      }
+      &-sub {
+        font-size: 16px;
+        font-weight: 400;
+      }
+    }
+    &-main {
+      &-embty {
+        width: 200px;
+        height: 200px;
+        margin: 20px auto;
+        &-text {
+          font-size: 14px;
+          font-weight: 500;
+          margin: 5px 0;
+        }
+        &-sub {
+          font-size: 14px;
+          font-weight: 300;
+          text-align: center;
+        }
+      }
+      &-group {
+        &-item {
+          padding: 10px 10px;
+          border-bottom: 1px solid #ededed;
+          &-image {
+            width: 90px;
+            height: 90px;
+          }
+          &-infor {
+            margin: 0 10px;
+            width: 70%;
+            &-title {
+              font-size: 17px;
+              font-weight: 500;
+            }
+            &-content {
+              font-size: 13px;
+              max-height: 40px;
+              line-height: 20px;
+              -webkit-line-clamp: 2;
+              margin-top: 5px;
+            }
+            &-time {
+              font-weight: 600;
+              font-size: 15px;
+              margin-top: 8px;
+            }
+          }
+          &-btn {
+            display: none;
+          }
+        }
+      }
+      &-pagination {
+        margin-top: 30px;
+      }
+    }
+  }
+}
+
+@include responsive_768 {
+  .information-notify {
+    padding: 15px;
+    &-header {
+      padding-bottom: 10px;
+      margin-bottom: 20px;
+      &-title {
+        font-size: 20px;
+        font-weight: bold;
+      }
+      &-sub {
+        font-size: 16px;
+        font-weight: 400;
+      }
+    }
+    &-main {
+      &-embty {
+        width: 200px;
+        height: 200px;
+        margin: 20px auto;
+        &-text {
+          font-size: 14px;
+          font-weight: 500;
+          margin: 5px 0;
+        }
+        &-sub {
+          font-size: 14px;
+          font-weight: 300;
+          text-align: center;
+        }
+      }
+      &-group {
+        &-item {
+          padding: 10px 10px;
+          border-bottom: 1px solid #ededed;
+          &-image {
+            width: 100px;
+            height: 100px;
+          }
+          &-infor {
+            margin: 0 10px;
+            width: 75%;
+            &-title {
+              font-size: 17px;
+              font-weight: 500;
+            }
+            &-content {
+              font-size: 13px;
+              max-height: 40px;
+              line-height: 20px;
+              -webkit-line-clamp: 2;
+              margin-top: 5px;
+            }
+            &-time {
+              font-weight: 600;
+              font-size: 15px;
+              margin-top: 8px;
+            }
+          }
+          &-btn {
+            padding: 5px 8px;
+            border: 1px solid #bfbfbf;
+            font-size: 13px;
+            border-radius: 4px;
+            text-align: center;
+          }
+        }
+      }
+      &-pagination {
+        margin-top: 30px;
+      }
+    }
+  }
+}
+@include responsive_1024 {
+  .information-notify {
+    padding: 15px;
+    &-header {
+      padding-bottom: 10px;
+      margin-bottom: 20px;
+      &-title {
+        font-size: 20px;
+        font-weight: bold;
+      }
+      &-sub {
+        font-size: 16px;
+        font-weight: 400;
+      }
+    }
+    &-main {
+      &-embty {
+        width: 200px;
+        height: 200px;
+        margin: 20px auto;
+        &-text {
+          font-size: 14px;
+          font-weight: 500;
+          margin: 5px 0;
+        }
+        &-sub {
+          font-size: 14px;
+          font-weight: 300;
+          text-align: center;
+        }
+      }
+      &-group {
+        &-item {
+          padding: 10px 10px;
+          border-bottom: 1px solid #ededed;
+          &-image {
+            width: 100px;
+            height: 100px;
+          }
+          &-infor {
+            margin: 0 10px;
+            width: 75%;
+            &-title {
+              font-size: 17px;
+              font-weight: 500;
+            }
+            &-content {
+              font-size: 13px;
+              max-height: 40px;
+              line-height: 20px;
+              -webkit-line-clamp: 2;
+              margin-top: 5px;
+            }
+            &-time {
+              font-weight: 600;
+              font-size: 15px;
+              margin-top: 8px;
+            }
+          }
+          &-btn {
+            padding: 5px 8px;
+            border: 1px solid #bfbfbf;
+            font-size: 13px;
+            border-radius: 4px;
+            text-align: center;
+          }
+        }
+      }
+      &-pagination {
+        margin-top: 30px;
+      }
+    }
+  }
+}
+@include responsive_1200 {
+  .information-notify {
+    padding: 15px;
+    &-header {
+      padding-bottom: 10px;
+      margin-bottom: 20px;
+      &-title {
+        font-size: 20px;
+        font-weight: bold;
+      }
+      &-sub {
+        font-size: 16px;
+        font-weight: 400;
+      }
+    }
+    &-main {
+      &-embty {
+        width: 200px;
+        height: 200px;
+        margin: 20px auto;
+        &-text {
+          font-size: 14px;
+          font-weight: 500;
+          margin: 5px 0;
+        }
+        &-sub {
+          font-size: 14px;
+          font-weight: 300;
+          text-align: center;
+        }
+      }
+      &-group {
+        &-item {
+          padding: 10px 10px;
+          border-bottom: 1px solid #ededed;
+          &-image {
+            width: 100px;
+            height: 100px;
+          }
+          &-infor {
+            margin: 0 10px;
+            width: 75%;
+            &-title {
+              font-size: 17px;
+              font-weight: 500;
+            }
+            &-content {
+              font-size: 13px;
+              max-height: 40px;
+              line-height: 20px;
+              -webkit-line-clamp: 2;
+              margin-top: 5px;
+            }
+            &-time {
+              font-weight: 600;
+              font-size: 15px;
+              margin-top: 8px;
+            }
+          }
+          &-btn {
+            padding: 5px 8px;
+            border: 1px solid #bfbfbf;
+            font-size: 13px;
+            border-radius: 4px;
+            text-align: center;
+          }
+        }
+      }
+      &-pagination {
+        margin-top: 30px;
+      }
+    }
+  }
+}
+@include responsive_1440 {
+  .information-notify {
+    padding: 20px;
+    &-header {
+      padding-bottom: 10px;
+      margin-bottom: 20px;
+      &-title {
+        font-size: 20px;
+        font-weight: bold;
+      }
+      &-sub {
+        font-size: 16px;
+        font-weight: 400;
+      }
+    }
+    &-main {
+      &-embty {
+        width: 200px;
+        height: 200px;
+        margin: 20px auto;
+        &-text {
+          font-size: 16px;
+          font-weight: 500;
+          margin: 5px 0;
+        }
+        &-sub {
+          font-size: 14px;
+          font-weight: 300;
+          text-align: center;
+        }
+      }
+      &-group {
+        &-item {
+          padding: 15px 10px;
+          border-bottom: 1px solid #ededed;
+          &-image {
+            width: 120px;
+            height: 120px;
+          }
+          &-infor {
+            margin: 0 10px;
+            width: 75%;
+            &-title {
+              font-size: 18px;
+              font-weight: 500;
+            }
+            &-content {
+              font-size: 14px;
+              max-height: 60px;
+              line-height: 20px;
+              -webkit-line-clamp: 3;
+              margin-top: 5px;
+            }
+            &-time {
+              font-weight: 600;
+              font-size: 15px;
+              margin-top: 8px;
+            }
+          }
+          &-btn {
+            padding: 5px 8px;
+            border: 1px solid #bfbfbf;
+            font-size: 15px;
+            border-radius: 4px;
+          }
+        }
+      }
+      &-pagination {
+        margin-top: 30px;
+      }
+    }
+  }
+}
+@include responsive_1650 {
+  .information-notify {
+    padding: 20px;
+    &-header {
+      padding-bottom: 10px;
+      margin-bottom: 20px;
+      &-title {
+        font-size: 20px;
+        font-weight: bold;
+      }
+      &-sub {
+        font-size: 16px;
+        font-weight: 400;
+      }
+    }
+    &-main {
+      &-embty {
+        width: 200px;
+        height: 200px;
+        margin: 20px auto;
+        &-text {
+          font-size: 16px;
+          font-weight: 500;
+          margin: 5px 0;
+        }
+        &-sub {
+          font-size: 14px;
+          font-weight: 300;
+          text-align: center;
+        }
+      }
+      &-group {
+        &-item {
+          padding: 15px 10px;
+          border-bottom: 1px solid #ededed;
+          &-image {
+            width: 120px;
+            height: 120px;
+          }
+          &-infor {
+            margin: 0 10px;
+            width: 75%;
+            &-title {
+              font-size: 18px;
+              font-weight: 500;
+            }
+            &-content {
+              font-size: 14px;
+              max-height: 60px;
+              line-height: 20px;
+              -webkit-line-clamp: 3;
+              margin-top: 5px;
+            }
+            &-time {
+              font-weight: 600;
+              font-size: 15px;
+              margin-top: 8px;
+            }
+          }
+          &-btn {
+            padding: 5px 8px;
+            border: 1px solid #bfbfbf;
+            font-size: 15px;
+            border-radius: 4px;
+          }
+        }
+      }
+      &-pagination {
+        margin-top: 30px;
+      }
+    }
+  }
+}
+@include responsive_1900 {
+}

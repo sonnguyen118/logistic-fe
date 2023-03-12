@@ -148,6 +148,12 @@
         top: 10px;
         color: $color-primary;
         font-size: 20px;
+        transition: all 0.3s linear;
+        &:hover {
+          cursor: pointer;
+          color: $color-secondary;
+          transition: all 0.3s linear;
+        }
       }
     }
   }

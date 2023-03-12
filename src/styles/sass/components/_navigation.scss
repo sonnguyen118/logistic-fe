@@ -56,22 +56,26 @@
   .list-navigation {
     position: absolute;
     top: -95px;
-    left: 20%;
+    left: 22%;
     &-special {
       position: absolute;
       top: -25px;
-      left: 25%;
+      left: 24%;
+    }
+    &-home {
+      font-size: 18px;
+      margin-right: 4px;
     }
     &-text {
-      font-size: 12px;
+      font-size: 14px;
       font-weight: 600;
       &-no {
-        font-size: 12px;
+        font-size: 14px;
         font-weight: 600;
       }
     }
     &-icon {
-      font-size: 9px;
+      font-size: 10px;
       margin: 0 5px;
     }
   }
@@ -88,14 +92,14 @@
       left: 23%;
     }
     &-home {
-      font-size: 13px;
+      font-size: 18px;
       margin-right: 8px;
     }
     &-text {
-      font-size: 12px;
+      font-size: 14px;
       font-weight: 600;
       &-no {
-        font-size: 12px;
+        font-size: 14px;
         font-weight: 600;
       }
     }

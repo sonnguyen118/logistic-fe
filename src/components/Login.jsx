@@ -2,40 +2,111 @@ import React, { useState, useEffect } from "react";
 import Layout from "./Layout";
 import { Helmet } from "react-helmet";
 import { Link } from "react-router-dom";
-import { useLocation } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import { loginThunk } from "../thunk/authThunks";
-import { registerThunk } from "../thunk/authThunks";
-import { userReceived } from "../actions/authActions";
+import { useLocation, useNavigate } from "react-router-dom";
+import { handleLoginChange, handleRegisterChange } from "../utils/formLogin";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { checkEmail, checkPassword, checkName } from "../utils/validateValue";
+import {
+  notifiSucceeded,
+  notifiError,
+  notifiWarning,
+  swweetSucceeded,
+} from "../utils/notify";
+
+import { loginUser, registerUser } from "../service/userService";
 
 const Login = () => {
+  const navigation = useNavigate();
   const [login, setLogin] = useState(true);
   const [resister, setRegister] = useState(false);
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(userReceived());
-  }, [dispatch]);
-  const products = useSelector((state) => state.authen.user);
-  console.log(products, "products");
+  const [showPassword, setShowPassword] = useState(false);
+  const [showPassword1, setShowPassword1] = useState(false);
+  const [loginData, setLoginData] = useState({ email: "", password: "" });
+  const [registerData, setRegisterData] = useState({
+    email: "",
+    password: "",
+    rePassword: "",
+    firstName: "",
+    lastName: "",
+  });
+  const [saveInfor, setSaveInfor] = useState(false);
+  const [validate, setValidate] = useState([false, false, false, false, false]);
+  const [imageUrl, setImageUrl] = useState("/chiphilogistics-1.jpeg");
+
   const [lable, setLable] = useState(null);
   const location = useLocation();
-  const handleLogin = (e) => {
-    e.preventDefault();
-    const userData = {
-      /* Lấy dữ liệu từ form */
-      email: "chidan@gmail.com",
-      password: "123456",
-    };
-    dispatch(loginThunk(userData));
+  const handleChangeRegister = (e, type) => {
+    handleRegisterChange(
+      e,
+      type,
+      registerData,
+      setRegisterData,
+      setValidate,
+      validate
+    );
   };
+
+  const handleLogin = async (e) => {
+    e.preventDefault();
+    const fetchData = async () => {
+      const res = await loginUser(loginData);
+      if (res.success) {
+        localStorage.setItem("email", res.data.email);
+        localStorage.setItem("firstName", res.data.firstName);
+        localStorage.setItem("lastName", res.data.lastName);
+        localStorage.setItem("token", res.data.token);
+        localStorage.setItem("id", res.data.id);
+        swweetSucceeded(
+          "Thành công",
+          "Đăng nhập thành công",
+          "success",
+          false,
+          1000,
+          "/"
+        );
+      } else {
+        notifiError(res.message);
+      }
+    };
+    fetchData();
+  };
+
   const handleRegister = (e) => {
     e.preventDefault();
-    const userData = {
-      /* Lấy dữ liệu từ form */
-      username: "12",
-      name: "54",
-    };
-    dispatch(registerThunk(userData));
+    if (checkEmail(registerData.email)) {
+      notifiError("Hãy nhập đúng định dạng Email");
+    } else if (checkPassword(registerData.password)) {
+      notifiError("Mật khẩu không được ít hơn 6 ký tự");
+    } else if (
+      checkName(registerData.firstName) ||
+      checkName(registerData.lastName)
+    ) {
+      notifiError("Tên không được bao gồm chữ số");
+    } else {
+      const fetchData = async () => {
+        const res = await registerUser(registerData);
+        if (res.success) {
+          localStorage.setItem("email", res.data.email);
+          localStorage.setItem("firstName", res.data.firstName);
+          localStorage.setItem("lastName", res.data.lastName);
+          localStorage.setItem("token", res.data.token);
+          localStorage.setItem("id", res.data.id);
+          console.log(res.data);
+          swweetSucceeded(
+            "Thành công",
+            "Hãy chờ quản trị viên phê duyệt tài khoản, điều này có thể mất chút thời gian !!",
+            "success",
+            false,
+            2000,
+            "/"
+          );
+        } else {
+          notifiError(res.message);
+        }
+      };
+      fetchData();
+    }
   };
 
   useEffect(() => {
@@ -45,7 +116,6 @@ const Login = () => {
   }, [location.search]);
 
   useEffect(() => {
-    console.log(`Lable changed to ${lable}`);
     if (Number(lable) === 2) {
       setRegister(true);
       setLogin(false);
@@ -56,7 +126,13 @@ const Login = () => {
       console.log("TH2");
     }
   }, [lable]);
-  const [imageUrl, setImageUrl] = useState("/chiphilogistics-1.jpeg");
+
+  // các hạm notify !
+  const notifiSucceeded = () => {
+    toast.success("Success Notification !", {
+      position: toast.POSITION.TOP_RIGHT,
+    });
+  };
   return (
     <>
       <Helmet>
@@ -84,22 +160,24 @@ const Login = () => {
               <div className="card-header p-2">
                 <ul className="nav nav-pills">
                   <li className="nav-item">
-                    <a
+                    <Link
+                      to={"/login?lable=1"}
                       className={login ? `nav-link active` : `nav-link`}
                       href="#activity"
                       data-toggle="tab"
                     >
                       Đăng Nhập
-                    </a>
+                    </Link>
                   </li>
                   <li className="nav-item">
-                    <a
+                    <Link
+                      to={"/login?lable=2"}
                       className={resister ? `nav-link active` : `nav-link`}
                       href="#timeline"
                       data-toggle="tab"
                     >
                       Đăng Ký
-                    </a>
+                    </Link>
                   </li>
                 </ul>
               </div>
@@ -117,24 +195,48 @@ const Login = () => {
                           className="form-control"
                           id="floatingInput"
                           placeholder="name@example.com"
+                          name="email"
+                          autoComplete={saveInfor ? "username" : "off"}
+                          onChange={(event) =>
+                            setLoginData(handleLoginChange(event, loginData))
+                          }
                         />
-                        <label htmlFor="floatingInput">Email address</label>
+                        <label htmlFor="floatingInput">Địa chỉ Email</label>
                       </div>
                       <div className="form-floating">
                         <input
-                          type="password"
+                          type={showPassword ? "text" : "password"}
                           className="form-control"
                           id="floatingPassword"
                           placeholder="Password"
+                          name="password"
+                          autoComplete={saveInfor ? "current-password" : "off"}
+                          onChange={(event) =>
+                            setLoginData(handleLoginChange(event, loginData))
+                          }
                         />
-                        <label htmlFor="floatingPassword">Password</label>
+                        <label htmlFor="floatingPassword">Mật khẩu</label>
+                        {showPassword ? (
+                          <i
+                            className="login-eye-slash fa-solid fa-eye-slash"
+                            onClick={() => setShowPassword(!showPassword)}
+                          ></i>
+                        ) : (
+                          <i
+                            className="login-eye fa-solid fa-eye"
+                            onClick={() => setShowPassword(!showPassword)}
+                          ></i>
+                        )}
                       </div>
+
                       <div className="form-check mt-2 mb-2 login-remember">
                         <input
                           className="form-check-input login-remember-checkbox"
                           type="checkbox"
                           value=""
                           id="flexCheckDefault"
+                          checked={saveInfor} // set checked status based on saveInfor state
+                          onChange={() => setSaveInfor(!saveInfor)}
                         />
                         <div
                           className="login-remember-text mt-2"
@@ -157,17 +259,13 @@ const Login = () => {
                           </span>
                         </Link>
 
-                        <a
-                          href="#timeline"
+                        <Link
+                          to={"/login?lable=2"}
                           data-toggle="tab"
                           className="login-question"
-                          onClick={() => {
-                            setLogin(false);
-                            setRegister(true);
-                          }}
                         >
                           Bạn chưa có tài khoản ? Hãy Tạo một tài khoản mới
-                        </a>
+                        </Link>
                       </div>
                     </form>
                   </div>
@@ -185,31 +283,50 @@ const Login = () => {
                           id="floatingInput"
                           placeholder="name@example.com"
                           required
+                          name="email"
+                          onChange={(e) => handleChangeRegister(e, "email")}
                         />
-                        <label htmlFor="floatingInput">Email address</label>
+                        <label htmlFor="floatingInput">Địa chỉ Email</label>
                       </div>
                       <div className="form-floating mb-3">
                         <input
-                          type="password"
+                          type={showPassword1 ? "text" : "password"}
                           className="form-control"
                           id="floatingPassword1"
                           placeholder="Password"
                           required
-                          name="up1"
+                          name="password"
+                          onChange={(e) => handleChangeRegister(e, "password")}
                         />
                         <label htmlFor="floatingPassword password1">
-                          Password
+                          Mật khẩu
                         </label>
+                        {showPassword1 ? (
+                          <i
+                            className="login-eye-slash fa-solid fa-eye-slash"
+                            onClick={() => setShowPassword1(!showPassword1)}
+                          ></i>
+                        ) : (
+                          <i
+                            className="login-eye fa-solid fa-eye"
+                            onClick={() => setShowPassword1(!showPassword1)}
+                          ></i>
+                        )}
                       </div>
                       <div className="form-floating mb-3">
                         <input
-                          type="password"
+                          type={showPassword1 ? "text" : "password"}
                           className="form-control"
                           id="floatingPassword2"
                           placeholder="RePassword"
-                          name="up2"
+                          name="rePassword"
+                          onChange={(e) =>
+                            handleChangeRegister(e, "rePassword")
+                          }
                         />
-                        <label htmlFor="floatingPassword2">RePassword</label>
+                        <label htmlFor="floatingPassword2">
+                          Nhập lại mật khẩu
+                        </label>
                       </div>
                       <div className="d-flex justify-content-between align-items-center mb-3">
                         <div className="form-floating w-50 login-input-l">
@@ -218,7 +335,10 @@ const Login = () => {
                             className="form-control"
                             id="validationCustom01"
                             placeholder="Họ"
-                            required
+                            name="lastName"
+                            onChange={(e) =>
+                              handleChangeRegister(e, "lastName")
+                            }
                           />
                           <label
                             htmlFor="validationCustom01"
@@ -233,7 +353,10 @@ const Login = () => {
                             className="form-control"
                             id="validationCustom01"
                             placeholder="Tên"
-                            required
+                            name="firstName"
+                            onChange={(e) =>
+                              handleChangeRegister(e, "firstName")
+                            }
                           />
                           <label
                             htmlFor="validationCustom01"
@@ -252,17 +375,13 @@ const Login = () => {
                         Đăng ký
                       </button>
                       <div className="d-flex mt-3 justify-content-between align-items-center">
-                        <a
-                          href="#activity"
+                        <Link
+                          to={"/login?lable=1"}
                           data-toggle="tab"
                           className="login-question"
-                          onClick={() => {
-                            setLogin(true);
-                            setRegister(false);
-                          }}
                         >
                           Bạn đã có tài khoản ? Hãy đăng nhập
-                        </a>
+                        </Link>
                       </div>
                     </form>
                   </div>
@@ -274,6 +393,9 @@ const Login = () => {
             </div>
           </div>
         </div>
+        <>
+          <ToastContainer />
+        </>
       </Layout>
     </>
   );

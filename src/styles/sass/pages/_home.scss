@@ -76,6 +76,15 @@
           background-color: $color-yellow;
           transition: all 0.2s ease-in-out;
         }
+        &-activate {
+          background-color: $color-secondary;
+          transition: all 0.2s ease-in-out;
+          &:hover {
+            cursor: pointer;
+            background-color: $color-yellow;
+            transition: all 0.2s ease-in-out;
+          }
+        }
       }
     }
   }

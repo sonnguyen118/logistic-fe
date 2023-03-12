@@ -5,18 +5,18 @@ import {
   userRequestFailed,
   userLoggedOut,
 } from "../actions/authActions";
-
-const API_BASE_URL = "http://192.168.0.100:5000";
+const apiUrl = require("../constants/api");
+const baseUrl = require("../constants/url");
 
 const api = axios.create({
-  baseURL: API_BASE_URL,
+  baseURL: baseUrl.API_BASE_URL,
 });
 
 export const registerThunk = (userData) => async (dispatch) => {
   dispatch(userRequested());
 
   try {
-    const response = await api.post("/api/auth/register", userData);
+    const response = await api.post(apiUrl.register, userData);
     dispatch(userReceived(response.data));
   } catch (error) {
     dispatch(userRequestFailed(error.message));
@@ -25,19 +25,28 @@ export const registerThunk = (userData) => async (dispatch) => {
 
 export const loginThunk = (userData) => async (dispatch) => {
   dispatch(userRequested());
-
   try {
-    const response = await api.post("/api/auth/login", userData);
-    dispatch(userReceived(response.data));
-    console.log(response.data);
+    await api
+      .post(apiUrl.login, userData)
+      .then((response) => {
+        if (response.data.success) {
+          dispatch(userReceived(response.data));
+          console.log(response.data.data, "respensei");
+        } else {
+          dispatch(userReceived());
+          dispatch(userRequestFailed(response.data));
+          console.log(response.data.message, "ty");
+        }
+      })
+      .catch((error) => console.log(error));
   } catch (error) {
     dispatch(userRequestFailed(error.message));
+    console.log(error, "respensei");
   }
 };
 
 export const logoutThunk = () => async (dispatch) => {
   dispatch(userRequested());
-
   try {
     await api.post("/api/auth/logout");
     dispatch(userLoggedOut());

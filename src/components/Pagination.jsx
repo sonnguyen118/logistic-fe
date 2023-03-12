@@ -1,7 +1,7 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
 
-const Pagination = ({ param, max, maxpage }) => {
+const Pagination = ({ originUrl, param, max, maxpage }) => {
   const location = useLocation();
   const searchParams = new URLSearchParams(location.search);
   const currentPage = parseInt(searchParams.get(param)) || 1;
@@ -20,7 +20,7 @@ const Pagination = ({ param, max, maxpage }) => {
     if (startPage > 1) {
       pagesToRender.push(
         <li className="page-item" key="first">
-          <Link className="page-link" to={`?${param}=1`}>
+          <Link className="page-link" to={`?${originUrl}=1`}>
             Trang Đầu
           </Link>
         </li>
@@ -33,7 +33,7 @@ const Pagination = ({ param, max, maxpage }) => {
           className={`page-item${currentPage === page ? " active" : ""}`}
           key={page}
         >
-          <Link className="page-link" to={`?${param}=${page}`}>
+          <Link className="page-link" to={`?${originUrl}=${page}`}>
             {page}
           </Link>
         </li>
@@ -49,7 +49,7 @@ const Pagination = ({ param, max, maxpage }) => {
 
       pagesToRender.push(
         <li className="page-item" key="last">
-          <Link className="page-link" to={`?${param}=${totalPages}`}>
+          <Link className="page-link" to={`?${originUrl}=${totalPages}`}>
             {totalPages}
           </Link>
         </li>
@@ -63,7 +63,7 @@ const Pagination = ({ param, max, maxpage }) => {
     <nav aria-label="...">
       <ul className="pagination">
         <li className={`page-item${currentPage === 1 ? " disabled" : ""}`}>
-          <Link className="page-link" to={`?${param}=${currentPage - 1}`}>
+          <Link className="page-link" to={`?${originUrl}=${currentPage - 1}`}>
             <i className="fa fa-angle-left" aria-hidden="true"></i>
             <span className="sr-only">Previous</span>
           </Link>
@@ -74,7 +74,7 @@ const Pagination = ({ param, max, maxpage }) => {
             currentPage === totalPages ? " disabled" : ""
           }`}
         >
-          <Link className="page-link" to={`?${param}=${currentPage + 1}`}>
+          <Link className="page-link" to={`?${originUrl}=${currentPage + 1}`}>
             <i className="fa fa-angle-right" aria-hidden="true"></i>
             <span className="sr-only">Next</span>
           </Link>

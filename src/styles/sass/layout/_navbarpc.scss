@@ -81,6 +81,60 @@
           transition: all 0.3s ease-in-out;
         }
       }
+      &-hello {
+        position: relative;
+        &:hover {
+          .navbar-pc-top-right-hello-hover {
+            visibility: inherit;
+            opacity: 1;
+            transition: all 0.2s ease-in-out;
+          }
+        }
+        &-text {
+          font-size: 14px;
+          color: $color-white;
+          transition: all 0.3s ease-in-out;
+          &:hover {
+            color: $color-yellow;
+            transition: all 0.3s ease-in-out;
+          }
+        }
+        &-hover {
+          position: absolute;
+          visibility: hidden;
+          opacity: 0;
+          background-color: #fff;
+          padding: 5px;
+          border-radius: 3px;
+          top: 29px;
+          right: 0;
+          z-index: 500;
+          box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+          transition: all 0.2s ease-in-out;
+          &-item {
+            font-size: 12.5px;
+            padding: 2px 5px;
+            &:hover {
+              cursor: pointer;
+              color: $color-yellow;
+            }
+            &-divider {
+              width: 100%;
+              height: 1px;
+              background-color: #ededed;
+            }
+          }
+        }
+        &::after {
+          content: "";
+          position: absolute;
+          width: 100%;
+          left: 0;
+          bottom: -10px;
+          height: 10px;
+          background-color: transparent;
+        }
+      }
     }
   }
   &-menu {

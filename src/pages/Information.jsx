@@ -6,6 +6,7 @@ import Account from "../components/information/account";
 import Notify from "../components/information/notify";
 import ListOrder from "../components/information/listorder";
 import Slider from "react-slick";
+import { handleLogOut } from "../utils/formLogin";
 
 const Information = () => {
   const navigate = useNavigate();
@@ -21,7 +22,7 @@ const Information = () => {
     false,
   ]);
   const [navigation, setNavigation] = useState([false, true, false]);
-  const [type, setType] = useState("type0");
+  const [type, setType] = useState(null);
   const [page, setPage] = useState(1);
   // hàm click menu
   const toggleMenu = (index) => {
@@ -65,6 +66,8 @@ const Information = () => {
       setMenuStatus([false, false, false, false, true]);
       setType("type4");
       setPage(searchParams.get("type4"));
+    } else if (searchParams.get("search")) {
+      setType("search");
     }
     const pathname = location.pathname;
     const orderStatus = pathname.split("/").pop();
@@ -97,122 +100,121 @@ const Information = () => {
       case "order-status":
         return (
           <>
-            <div className="information-right-menu">
-              <div
-                className={
-                  menuStatus[0]
-                    ? "information-right-menu-item information-right-menu-item-activate"
-                    : "information-right-menu-item"
-                }
-                onClick={() => toggleMenu(0)}
-              >
-                Tất cả
-              </div>
-              <div
-                className={
-                  menuStatus[1]
-                    ? "information-right-menu-item information-right-menu-item-activate"
-                    : "information-right-menu-item"
-                }
-                onClick={() => toggleMenu(1)}
-              >
-                Đã nhập kho Trung Quốc
-              </div>
-              <div
-                className={
-                  menuStatus[2]
-                    ? "information-right-menu-item information-right-menu-item-activate"
-                    : "information-right-menu-item"
-                }
-                onClick={() => toggleMenu(2)}
-              >
-                Đang về kho Việt Nam
-              </div>
-              <div
-                className={
-                  menuStatus[3]
-                    ? "information-right-menu-item information-right-menu-item-activate"
-                    : "information-right-menu-item"
-                }
-                onClick={() => toggleMenu(3)}
-              >
-                Đã nhập kho Việt Nam
-              </div>
-              <div
-                className={
-                  menuStatus[4]
-                    ? "information-right-menu-item information-right-menu-item-activate"
-                    : "information-right-menu-item"
-                }
-                onClick={() => toggleMenu(4)}
-              >
-                Đã trả khách
-              </div>
-            </div>
-            <div className="information-right-menu-mobile">
-              <Slider {...settings}>
-                <div
-                  className={
-                    menuStatus[0]
-                      ? "information-right-menu-item information-right-menu-item-activate"
-                      : "information-right-menu-item"
-                  }
-                  onClick={() => toggleMenu(0)}
-                >
-                  Tất cả
+            {menuStatus !== undefined ? (
+              <>
+                <div className="information-right-menu">
+                  <div
+                    className={
+                      menuStatus[0]
+                        ? "information-right-menu-item information-right-menu-item-activate"
+                        : "information-right-menu-item"
+                    }
+                    onClick={() => toggleMenu(0)}
+                  >
+                    Tất cả
+                  </div>
+                  <div
+                    className={
+                      menuStatus[1]
+                        ? "information-right-menu-item information-right-menu-item-activate"
+                        : "information-right-menu-item"
+                    }
+                    onClick={() => toggleMenu(1)}
+                  >
+                    Đã nhập kho Trung Quốc
+                  </div>
+                  <div
+                    className={
+                      menuStatus[2]
+                        ? "information-right-menu-item information-right-menu-item-activate"
+                        : "information-right-menu-item"
+                    }
+                    onClick={() => toggleMenu(2)}
+                  >
+                    Đang về kho Việt Nam
+                  </div>
+                  <div
+                    className={
+                      menuStatus[3]
+                        ? "information-right-menu-item information-right-menu-item-activate"
+                        : "information-right-menu-item"
+                    }
+                    onClick={() => toggleMenu(3)}
+                  >
+                    Đã nhập kho Việt Nam
+                  </div>
+                  <div
+                    className={
+                      menuStatus[4]
+                        ? "information-right-menu-item information-right-menu-item-activate"
+                        : "information-right-menu-item"
+                    }
+                    onClick={() => toggleMenu(4)}
+                  >
+                    Đã trả khách
+                  </div>
                 </div>
-                <div
-                  className={
-                    menuStatus[1]
-                      ? "information-right-menu-item information-right-menu-item-activate"
-                      : "information-right-menu-item"
-                  }
-                  onClick={() => toggleMenu(1)}
-                >
-                  Đã nhập kho Trung Quốc
+                <div className="information-right-menu-mobile">
+                  <Slider {...settings}>
+                    <div
+                      className={
+                        menuStatus[0]
+                          ? "information-right-menu-item information-right-menu-item-activate"
+                          : "information-right-menu-item"
+                      }
+                      onClick={() => toggleMenu(0)}
+                    >
+                      Tất cả
+                    </div>
+                    <div
+                      className={
+                        menuStatus[1]
+                          ? "information-right-menu-item information-right-menu-item-activate"
+                          : "information-right-menu-item"
+                      }
+                      onClick={() => toggleMenu(1)}
+                    >
+                      Đã nhập kho Trung Quốc
+                    </div>
+                    <div
+                      className={
+                        menuStatus[2]
+                          ? "information-right-menu-item information-right-menu-item-activate"
+                          : "information-right-menu-item"
+                      }
+                      onClick={() => toggleMenu(2)}
+                    >
+                      Đang về kho Việt Nam
+                    </div>
+                    <div
+                      className={
+                        menuStatus[3]
+                          ? "information-right-menu-item information-right-menu-item-activate"
+                          : "information-right-menu-item"
+                      }
+                      onClick={() => toggleMenu(3)}
+                    >
+                      Đã nhập kho Việt Nam
+                    </div>
+                    <div
+                      className={
+                        menuStatus[4]
+                          ? "information-right-menu-item information-right-menu-item-activate"
+                          : "information-right-menu-item"
+                      }
+                      onClick={() => toggleMenu(4)}
+                    >
+                      Đã trả khách
+                    </div>
+                  </Slider>
                 </div>
-                <div
-                  className={
-                    menuStatus[2]
-                      ? "information-right-menu-item information-right-menu-item-activate"
-                      : "information-right-menu-item"
-                  }
-                  onClick={() => toggleMenu(2)}
-                >
-                  Đang về kho Việt Nam
+                <div className="information-right-component">
+                  <ListOrder type={type} page={page} />
                 </div>
-                <div
-                  className={
-                    menuStatus[3]
-                      ? "information-right-menu-item information-right-menu-item-activate"
-                      : "information-right-menu-item"
-                  }
-                  onClick={() => toggleMenu(3)}
-                >
-                  Đã nhập kho Việt Nam
-                </div>
-                <div
-                  className={
-                    menuStatus[4]
-                      ? "information-right-menu-item information-right-menu-item-activate"
-                      : "information-right-menu-item"
-                  }
-                  onClick={() => toggleMenu(4)}
-                >
-                  Đã trả khách
-                </div>
-              </Slider>
-            </div>
-            <div className="information-right-search">
-              <input
-                className="information-right-search-input"
-                placeholder={`Bạn có thể tìm kiếm theo mã vận đơn ...`}
-              ></input>
-              <i class="fa-solid fa-magnifying-glass information-right-search-icon"></i>
-            </div>
-            <div className="information-right-component">
-              <ListOrder type={type} page={page} />
-            </div>
+              </>
+            ) : (
+              <></>
+            )}
           </>
         );
       case "account":
@@ -222,68 +224,67 @@ const Information = () => {
       default:
         return (
           <>
-            <div className="information-right-menu">
-              <div
-                className={
-                  menuStatus[0]
-                    ? "information-right-menu-item information-right-menu-item-activate"
-                    : "information-right-menu-item"
-                }
-                onClick={() => toggleMenu(0)}
-              >
-                Tất cả
-              </div>
-              <div
-                className={
-                  menuStatus[1]
-                    ? "information-right-menu-item information-right-menu-item-activate"
-                    : "information-right-menu-item"
-                }
-                onClick={() => toggleMenu(1)}
-              >
-                Đã nhập kho Trung
-              </div>
-              <div
-                className={
-                  menuStatus[2]
-                    ? "information-right-menu-item information-right-menu-item-activate"
-                    : "information-right-menu-item"
-                }
-                onClick={() => toggleMenu(2)}
-              >
-                Đang vận chuyển đến kho Việt
-              </div>
-              <div
-                className={
-                  menuStatus[3]
-                    ? "information-right-menu-item information-right-menu-item-activate"
-                    : "information-right-menu-item"
-                }
-                onClick={() => toggleMenu(3)}
-              >
-                Đã nhập kho Việt
-              </div>
-              <div
-                className={
-                  menuStatus[4]
-                    ? "information-right-menu-item information-right-menu-item-activate"
-                    : "information-right-menu-item"
-                }
-                onClick={() => toggleMenu(4)}
-              >
-                Đã giao
-              </div>
-            </div>
-            <div className="information-right-search">
-              <input
-                className="information-right-search-input"
-                placeholder={`Bạn có thể tìm kiếm theo mã vận đơn ...`}
-              ></input>
-              <i class="fa-solid fa-magnifying-glass information-right-search-icon"></i>
-            </div>
-            <div className="information-right-component">
-              <ListOrder type={type} page={page} />
-            </div>
+            {menuStatus !== undefined ? (
+              <>
+                <div className="information-right-menu">
+                  <div
+                    className={
+                      menuStatus[0]
+                        ? "information-right-menu-item information-right-menu-item-activate"
+                        : "information-right-menu-item"
+                    }
+                    onClick={() => toggleMenu(0)}
+                  >
+                    Tất cả
+                  </div>
+                  <div
+                    className={
+                      menuStatus[1]
+                        ? "information-right-menu-item information-right-menu-item-activate"
+                        : "information-right-menu-item"
+                    }
+                    onClick={() => toggleMenu(1)}
+                  >
+                    Đã nhập kho Trung
+                  </div>
+                  <div
+                    className={
+                      menuStatus[2]
+                        ? "information-right-menu-item information-right-menu-item-activate"
+                        : "information-right-menu-item"
+                    }
+                    onClick={() => toggleMenu(2)}
+                  >
+                    Đang vận chuyển đến kho Việt
+                  </div>
+                  <div
+                    className={
+                      menuStatus[3]
+                        ? "information-right-menu-item information-right-menu-item-activate"
+                        : "information-right-menu-item"
+                    }
+                    onClick={() => toggleMenu(3)}
+                  >
+                    Đã nhập kho Việt
+                  </div>
+                  <div
+                    className={
+                      menuStatus[4]
+                        ? "information-right-menu-item information-right-menu-item-activate"
+                        : "information-right-menu-item"
+                    }
+                    onClick={() => toggleMenu(4)}
+                  >
+                    Đã giao
+                  </div>
+                </div>
+                <div className="information-right-component">
+                  <ListOrder type={type} page={page} />
+                </div>
+              </>
+            ) : (
+              <></>
+            )}
           </>
         );
     }
@@ -317,49 +318,58 @@ const Information = () => {
             }}
           ></div>
           <div className="dropdown-menu dropdown-menu-right">
-            <Link
-              to={`/information/account`}
-              className={
-                navigation[0]
-                  ? "information-left-item dropdown-item information-left-item-activate"
-                  : "information-left-item dropdown-item"
-              }
-            >
-              <i className="information-left-item-icon fa-solid fa-user"></i>
-              <span className="information-left-item-text">
-                Tài Khoản Của Tôi
-              </span>
-            </Link>
-            <Link
-              to={`/information/order-status?type0=1`}
-              className={
-                navigation[1]
-                  ? "information-left-item dropdown-item information-left-item-activate"
-                  : "information-left-item dropdown-item"
-              }
-            >
-              <i className="fa-solid fa-truck-fast information-left-item-icon"></i>
-              <span className="information-left-item-text">
-                Tình Trạng Hàng
-              </span>
-            </Link>
-            <Link
-              to={`/information/notify?page=1`}
-              className={
-                navigation[2]
-                  ? "information-left-item dropdown-item information-left-item-activate"
-                  : "information-left-item dropdown-item"
-              }
-            >
-              <i className="information-left-item-icon fa-solid fa-bell"></i>
-              <span className="information-left-item-text">Thông Báo</span>
-            </Link>
+            {navigation !== undefined ? (
+              <>
+                <Link
+                  to={`/information/account`}
+                  className={
+                    navigation[0]
+                      ? "information-left-item dropdown-item information-left-item-activate"
+                      : "information-left-item dropdown-item"
+                  }
+                >
+                  <i className="information-left-item-icon fa-solid fa-user"></i>
+                  <span className="information-left-item-text">
+                    Tài Khoản Của Tôi
+                  </span>
+                </Link>
+                <Link
+                  to={`/information/order-status?type0=1`}
+                  className={
+                    navigation[1]
+                      ? "information-left-item dropdown-item information-left-item-activate"
+                      : "information-left-item dropdown-item"
+                  }
+                >
+                  <i className="fa-solid fa-truck-fast information-left-item-icon"></i>
+                  <span className="information-left-item-text">
+                    Tình Trạng Hàng
+                  </span>
+                </Link>
+                <Link
+                  to={`/information/notify?page=1`}
+                  className={
+                    navigation[2]
+                      ? "information-left-item dropdown-item information-left-item-activate"
+                      : "information-left-item dropdown-item"
+                  }
+                >
+                  <i className="information-left-item-icon fa-solid fa-bell"></i>
+                  <span className="information-left-item-text">Thông Báo</span>
+                </Link>
+              </>
+            ) : (
+              <></>
+            )}
 
             <div className="dropdown-divider" />
-            <Link to={`/`} className="information-left-item dropdown-item">
+            <div
+              className="information-left-item dropdown-item"
+              onClick={handleLogOut}
+            >
               <i className="information-left-item-icon fa-solid fa-right-from-bracket"></i>
               <span className="information-left-item-text">Đăng xuất</span>
-            </Link>
+            </div>
           </div>
         </div>
         <div className="information">
@@ -385,49 +395,59 @@ const Information = () => {
                 </Link>
               </div>
             </div>
-            <div className="information-left-list">
-              <Link
-                to={`/information/account`}
-                className={
-                  navigation[0]
-                    ? "information-left-item information-left-item-activate"
-                    : "information-left-item"
-                }
-              >
-                <i className="information-left-item-icon fa-solid fa-user"></i>
-                <span className="information-left-item-text">
-                  Tài Khoản Của Tôi
-                </span>
-              </Link>
-              <Link
-                to={`/information/order-status?type0=1`}
-                className={
-                  navigation[1]
-                    ? "information-left-item information-left-item-activate"
-                    : "information-left-item"
-                }
-              >
-                <i className="fa-solid fa-truck-fast information-left-item-icon"></i>
-                <span className="information-left-item-text">
-                  Tình Trạng Hàng
-                </span>
-              </Link>
-              <Link
-                to={`/information/notify?page=1`}
-                className={
-                  navigation[2]
-                    ? "information-left-item information-left-item-activate"
-                    : "information-left-item"
-                }
-              >
-                <i className="information-left-item-icon fa-solid fa-bell"></i>
-                <span className="information-left-item-text">Thông Báo</span>
-              </Link>
-              <div className="information-left-item">
-                <i className="information-left-item-icon fa-solid fa-right-from-bracket"></i>
-                <span className="information-left-item-text">Đăng Xuất</span>
-              </div>
-            </div>
+            {navigation !== undefined ? (
+              <>
+                <div className="information-left-list">
+                  <Link
+                    to={`/information/account`}
+                    className={
+                      navigation[0]
+                        ? "information-left-item information-left-item-activate"
+                        : "information-left-item"
+                    }
+                  >
+                    <i className="information-left-item-icon fa-solid fa-user"></i>
+                    <span className="information-left-item-text">
+                      Tài Khoản Của Tôi
+                    </span>
+                  </Link>
+                  <Link
+                    to={`/information/order-status?type0=1`}
+                    className={
+                      navigation[1]
+                        ? "information-left-item information-left-item-activate"
+                        : "information-left-item"
+                    }
+                  >
+                    <i className="fa-solid fa-truck-fast information-left-item-icon"></i>
+                    <span className="information-left-item-text">
+                      Tình Trạng Hàng
+                    </span>
+                  </Link>
+                  <Link
+                    to={`/information/notify?page=1`}
+                    className={
+                      navigation[2]
+                        ? "information-left-item information-left-item-activate"
+                        : "information-left-item"
+                    }
+                  >
+                    <i className="information-left-item-icon fa-solid fa-bell"></i>
+                    <span className="information-left-item-text">
+                      Thông Báo
+                    </span>
+                  </Link>
+                  <div className="information-left-item" onClick={handleLogOut}>
+                    <i className="information-left-item-icon fa-solid fa-right-from-bracket"></i>
+                    <span className="information-left-item-text">
+                      Đăng Xuất
+                    </span>
+                  </div>
+                </div>
+              </>
+            ) : (
+              <></>
+            )}
           </div>
           <div className="information-right">{renderContent()}</div>
         </div>

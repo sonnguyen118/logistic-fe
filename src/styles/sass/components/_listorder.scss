@@ -16,6 +16,10 @@
       font-size: 15px;
       padding-bottom: 20px;
     }
+    &-loading {
+      margin: 0 auto;
+      text-align: center;
+    }
   }
   &-table {
     &-wrap {
@@ -47,6 +51,12 @@
       width: 100%;
       tr {
         width: 100%;
+        transition: all 0.2s ease-in-out;
+        &:hover {
+          cursor: pointer;
+          background-color: #e5f3ff;
+          transition: all 0.2s ease-in-out;
+        }
         td {
           text-align: center;
           &:nth-child(1) {
