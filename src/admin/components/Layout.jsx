@@ -6,6 +6,7 @@ const AdminLayout = ({ children }) => {
   const toggleBlock = () => {
     setIsShown(!isShown);
   };
+
   return (
     <>
       <Helmet>
@@ -41,7 +42,7 @@ const AdminLayout = ({ children }) => {
                 {/* Sidebar - Brand */}
                 <a
                   className="sidebar-brand d-flex align-items-center justify-content-center"
-                  href="index.html"
+                  href="/admin"
                 >
                   <div className="sidebar-brand-icon rotate-n-15">
                     <i className="fa-solid fa-user-ninja"></i>
@@ -134,7 +135,7 @@ const AdminLayout = ({ children }) => {
                       </a>
                       <a
                         className="collapse-item"
-                        href="/admin/system/posts/tariffs"
+                        href="/admin/system/posts/about"
                       >
                         Giới thiệu
                       </a>

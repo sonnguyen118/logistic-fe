@@ -1,16 +1,33 @@
-import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { handleLogOut } from "../../utils/formLogin";
+import { getNavbar } from "../../service/navbarService";
+import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer } from "react-toastify";
+import { notifiError } from "../../utils/notify";
 
 const MenuPost = () => {
-  const [menu, setMenu] = useState([
-    { title: "Trang chủ", link: "/" },
-    { title: "Biểu phí", link: "/tariffs" },
-    { title: "Các sản phẩm", link: "/products" },
-    { title: "Giới thiệu", link: "/about" },
-    { title: "Chính sách", link: "/policys" },
-    { title: "Hướng dẫn", link: "/instructs" },
-    { title: "Thông báo", link: "/notification" },
-  ]);
+  const [menu, setMenu] = useState([]);
+  const [data, setData] = useState(null);
+  useEffect(() => {
+    // lấy dữ liệu menu
+    const fetchData = async () => {
+      const navbarData = await getNavbar();
+      if (navbarData.success) {
+        setData(navbarData.data);
+      } else {
+        notifiError("Lấy dữ liệu thất bại");
+      }
+    };
+    fetchData();
+  }, []);
+  console.log(data, "đây là data");
+  useEffect(() => {
+    if (data) {
+      setMenu(data.filter((item) => item.name !== "MORE_INFORMATION"));
+    }
+  }, [data]);
+  console.log(menu, "đây là m,enu");
   const [posts, setPosts] = useState([
     {
       title:
@@ -75,11 +92,11 @@ const MenuPost = () => {
             {menu !== undefined ? (
               <>
                 {menu.map((data, i) => (
-                  <Link to={data.link}>
+                  <Link to={menu.link}>
                     <div className="menu-post-menu-wrap-item ">
                       <i className="menu-post-menu-wrap-item-icon fa-sharp fa-solid fa-play"></i>
                       <span className="menu-post-menu-wrap-item-title">
-                        {data.title}
+                        {data.name}
                       </span>
                     </div>
                   </Link>

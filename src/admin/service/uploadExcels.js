@@ -7,9 +7,13 @@ const api = axios.create({
 });
 
 // file api
-export const getNavbar = async () => {
+export const uploadExcel = async (token, body) => {
   try {
-    const response = await api.get(apiUrl.get_navbar);
+    const response = await api.post(apiUrl.uploadExcel, body, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
     // console.log(response.data);
     return response.data;
   } catch (e) {

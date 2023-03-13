@@ -78,6 +78,6 @@ export const swweetSucceededReload = (
     showConfirmButton: showConfirmButton,
     timer: timer,
   }).then(() => {
-    window.reload();
+    window.location.reload();
   });
 };

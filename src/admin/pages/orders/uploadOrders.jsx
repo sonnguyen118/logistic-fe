@@ -1,8 +1,13 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { uploadExcel } from "../../service/uploadExcels";
+import { notifiError, notifiWarning } from "../../../utils/notify";
+import { getListOrdersAll } from "../../../service/ordersService";
 
 const UploadOrders = () => {
   const [file, setFile] = useState(null);
   const [title, setTitle] = useState("Chọn file");
+  const [stateupload, setStateUpload] = useState(0);
+  const [data, setData] = useState(null);
 
   const handleInput = (e) => {
     if (e.target.files[0]) {
@@ -32,6 +37,44 @@ const UploadOrders = () => {
     setFile(null);
     setTitle("Chọn file");
   };
+
+  const handleSubmit = () => {
+    const token = localStorage.getItem("token");
+    if (file != null && token) {
+      setStateUpload(1);
+      const body = new FormData();
+      body.append("file", file);
+      // Đẩy dữ liệu lên
+      const fetchData = async () => {
+        const navbarData = await uploadExcel(token, body);
+        if (navbarData.success) {
+          setStateUpload(2);
+        } else {
+          alert("Lấy dữ liệu thất bại");
+          setStateUpload(3);
+        }
+      };
+      fetchData();
+    }
+  };
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (stateupload === 2 && token) {
+      const fetchData0 = async () => {
+        const navbarData = await getListOrdersAll(token);
+        if (navbarData.success) {
+          setData(navbarData.data);
+        } else {
+          notifiError("Lấy dữ liệu thất bại");
+          window.location.replace("/");
+        }
+      };
+      fetchData0();
+    }
+  }, [stateupload]);
+
+  console.log(data, data);
   return (
     <>
       <section className="content">
@@ -71,6 +114,7 @@ const UploadOrders = () => {
                               class="ml-3 btn btn-success active"
                               role="button"
                               aria-pressed="true"
+                              onClick={handleSubmit}
                             >
                               Đọc File này
                             </btn>
@@ -103,7 +147,56 @@ const UploadOrders = () => {
             <div className="col-md-6">
               <div className="card">
                 <div className="card-header">
-                  <h3 className="card-title">Đọc File Thành Công !!</h3>
+                  {stateupload !== undefined && stateupload !== 0 ? (
+                    <>
+                      {stateupload === 1 ? (
+                        <>
+                          <h4 className="card-title">
+                            <div className="spinner-border mr-3" role="status">
+                              <span className="sr-only">Loading...</span>
+                            </div>
+                            Đang tải file lên hệ thống !!
+                          </h4>
+                        </>
+                      ) : (
+                        <>
+                          {stateupload === 2 ? (
+                            <>
+                              <h4 className="card-title">
+                                <div
+                                  className="alert alert-success"
+                                  role="alert"
+                                >
+                                  Đọc File thành công{" "}
+                                  <a href="#" className="alert-link">
+                                    Hãy Đừng vui mừng sớm quá
+                                  </a>
+                                  😒😒😒
+                                </div>
+                              </h4>
+                            </>
+                          ) : (
+                            <>
+                              <h4 className="card-title">
+                                <div
+                                  className="alert alert-danger"
+                                  role="alert"
+                                >
+                                  Đọc File thất bại{" "}
+                                  <a href="#" className="alert-link">
+                                    Hãy Đừng quá buồn nhé
+                                  </a>
+                                  😆😜
+                                </div>
+                              </h4>
+                            </>
+                          )}
+                        </>
+                      )}
+                    </>
+                  ) : (
+                    <></>
+                  )}
                 </div>
                 {/* /.card-header */}
                 <div
@@ -115,108 +208,34 @@ const UploadOrders = () => {
                       <tr>
                         <th>STT</th>
                         <th>Mã đơn hàng</th>
-                        <th>Thời gian</th>
                         <th>Trạng thái</th>
                       </tr>
                     </thead>
-                    <tbody>
-                      <tr>
-                        <td>1</td>
-                        <td>JT3025918461104</td>
-                        <td>03/04/2023 16:59</td>
-                        <td>Đã nhập kho Trung Quốc</td>
-                      </tr>
-                      <tr>
-                        <td>1</td>
-                        <td>JT3025918461104</td>
-                        <td>03/04/2023 16:59</td>
-                        <td>Đã nhập kho Trung Quốc</td>
-                      </tr>
-                      <tr>
-                        <td>1</td>
-                        <td>JT3025918461104</td>
-                        <td>03/04/2023 16:59</td>
-                        <td>Đã nhập kho Trung Quốc</td>
-                      </tr>
-                      <tr>
-                        <td>1</td>
-                        <td>JT3025918461104</td>
-                        <td>03/04/2023 16:59</td>
-                        <td>Đã nhập kho Trung Quốc</td>
-                      </tr>
-                      <tr>
-                        <td>1</td>
-                        <td>JT3025918461104</td>
-                        <td>03/04/2023 16:59</td>
-                        <td>Đã nhập kho Trung Quốc</td>
-                      </tr>
-                      <tr>
-                        <td>1</td>
-                        <td>JT3025918461104</td>
-                        <td>03/04/2023 16:59</td>
-                        <td>Đã nhập kho Trung Quốc</td>
-                      </tr>
-                      <tr>
-                        <td>1</td>
-                        <td>JT3025918461104</td>
-                        <td>03/04/2023 16:59</td>
-                        <td>Đã nhập kho Trung Quốc</td>
-                      </tr>
-                      <tr>
-                        <td>1</td>
-                        <td>JT3025918461104</td>
-                        <td>03/04/2023 16:59</td>
-                        <td>Đã nhập kho Trung Quốc</td>
-                      </tr>
-                      <tr>
-                        <td>1</td>
-                        <td>JT3025918461104</td>
-                        <td>03/04/2023 16:59</td>
-                        <td>Đã nhập kho Trung Quốc</td>
-                      </tr>
-                      <tr>
-                        <td>1</td>
-                        <td>JT3025918461104</td>
-                        <td>03/04/2023 16:59</td>
-                        <td>Đã nhập kho Trung Quốc</td>
-                      </tr>
-                      <tr>
-                        <td>1</td>
-                        <td>JT3025918461104</td>
-                        <td>03/04/2023 16:59</td>
-                        <td>Đã nhập kho Trung Quốc</td>
-                      </tr>
-                      <tr>
-                        <td>1</td>
-                        <td>JT3025918461104</td>
-                        <td>03/04/2023 16:59</td>
-                        <td>Đã nhập kho Trung Quốc</td>
-                      </tr>
-                      <tr>
-                        <td>1</td>
-                        <td>JT3025918461104</td>
-                        <td>03/04/2023 16:59</td>
-                        <td>Đã nhập kho Trung Quốc</td>
-                      </tr>
-                      <tr>
-                        <td>1</td>
-                        <td>JT3025918461104</td>
-                        <td>03/04/2023 16:59</td>
-                        <td>Đã nhập kho Trung Quốc</td>
-                      </tr>
-                      <tr>
-                        <td>1</td>
-                        <td>JT3025918461104</td>
-                        <td>03/04/2023 16:59</td>
-                        <td>Đã nhập kho Trung Quốc</td>
-                      </tr>
-                      <tr>
-                        <td>1</td>
-                        <td>JT3025918461104</td>
-                        <td>03/04/2023 16:59</td>
-                        <td>Đã nhập kho Trung Quốc</td>
-                      </tr>
-                    </tbody>
+                    {data ? (
+                      <>
+                        {data.length > 0 ? (
+                          <>
+                            <tbody>
+                              {data.map((order, index) => (
+                                <tr key={index}>
+                                  <td>{index + 1}</td>
+                                  <td>{order.order_code}</td>
+                                  <td>{order.status_name}</td>
+                                </tr>
+                              ))}
+                            </tbody>
+                          </>
+                        ) : (
+                          <tbody>
+                            <>Dữ liệu chưa cập nhật</>
+                          </tbody>
+                        )}
+                      </>
+                    ) : (
+                      <tbody>
+                        <>Dữ liệu chưa cập nhật</>
+                      </tbody>
+                    )}
                   </table>
                 </div>
                 {/* /.card-body */}

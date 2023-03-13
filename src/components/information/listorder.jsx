@@ -11,7 +11,6 @@ import { notifiError, notifiWarning } from "../../utils/notify";
 import Loading from "../Loading";
 
 const ListOrder = ({ type, page }) => {
-  console.log(type, "type", typeof type);
   const [backgroundImage, setBackgroundImage] = useState("/emptycart.png");
   const location = useLocation();
   const [inputValue, setInputValue] = useState("");
@@ -30,7 +29,6 @@ const ListOrder = ({ type, page }) => {
     if (local_token && type !== undefined) {
       switch (type) {
         case "type0":
-          console.log("type đang là 0");
           setUrlSearching("");
           const fetchData0 = async () => {
             const navbarData = await getListOrdersAll(local_token);

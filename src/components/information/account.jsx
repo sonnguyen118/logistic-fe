@@ -27,6 +27,7 @@ const Account = () => {
   const [user_name, setUserName] = useState("");
   const [user_name2, setUserName2] = useState("");
   const [user_phone, setUserPhone] = useState("");
+  const [user_other, setUserOther] = useState(null);
   const [user_general, setUserGeneral] = useState("");
   const [user_day, setUserDay] = useState(null);
   const [user_month, setUserMonth] = useState(null);
@@ -66,6 +67,7 @@ const Account = () => {
     if (data) {
       setUserName(data.first_name);
       setUserName2(data.last_name);
+      setUserOther(data.otherName);
       setUserPhone(data.phone);
       setUserGeneral(data.gender);
       setSelectedDate(data.birthday);
@@ -77,7 +79,6 @@ const Account = () => {
       }
     }
   }, [data]);
-  console.log(selectedDate);
 
   const fileInput = useRef(null);
   const handleUploadClick = () => {
@@ -116,8 +117,9 @@ const Account = () => {
     var isoString = "";
     console.log(user_day, user_month, user_year);
     if (Number(user_day) > 0 && Number(user_month) > 0 && Number(user_year)) {
-      const dateObj = new Date(Date.UTC(user_year, user_month - 1, user_day));
-      isoString = dateObj.toISOString();
+      // const dateObj = new Date(Date.UTC(user_year, user_month - 1, user_day));
+      // isoString = dateObj.toISOString();
+      isoString = user_year + "-" + user_month + "-" + user_day;
     }
     let body = {
       id: id,
@@ -127,6 +129,7 @@ const Account = () => {
       phone: user_phone,
       birthday: isoString,
       avatar: image,
+      otherName: user_other,
     };
     const checkphone = /^0\d{8,11}$/;
     const checkname = /\d/;
@@ -179,7 +182,13 @@ const Account = () => {
                           Tên đăng nhập
                         </div>
                         <div className="information-account-main-infor-left-item">
+                          Họ
+                        </div>
+                        <div className="information-account-main-infor-left-item">
                           Tên
+                        </div>
+                        <div className="information-account-main-infor-left-item">
+                          Bí danh
                         </div>
                         <div className="information-account-main-infor-left-item">
                           Email
@@ -207,9 +216,24 @@ const Account = () => {
                           </div>
                           <input
                             className="information-account-main-infor-right-input"
+                            value={user_name2}
+                            onChange={(e) => setUserName2(e.target.value)}
+                          ></input>
+                          <input
+                            className="information-account-main-infor-right-input"
                             value={user_name}
                             onChange={(e) => setUserName(e.target.value)}
                           ></input>
+                          <div className="information-account-main-infor-right-email">
+                            {user_other ? (
+                              <>{user_other}</>
+                            ) : (
+                              <>Chưa có bí danh</>
+                            )}
+                            <span className="information-account-main-infor-right-change">
+                              Thay đổi
+                            </span>
+                          </div>
                           <div className="information-account-main-infor-right-email">
                             {user_email}
                             <span className="information-account-main-infor-right-change">

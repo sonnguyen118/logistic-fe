@@ -1,20 +1,48 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 import Layout from "../components/Layout";
 import { Helmet } from "react-helmet";
 import Toc from "react-toc";
 import MenuPost from "../components/post/menuPost";
+import { Link, useNavigate, useLocation } from "react-router-dom";
+import { notifiError, swweetSucceeded, notifiWarning } from "../utils/notify";
+import "react-datepicker/dist/react-datepicker.css";
+import { getSystemPost } from "../service/systempostService";
 
 const Instructs = () => {
-  const [datas, setDatas] = useState(
-    '<h1>HƯỚNG DẪN</h1> <p><strong>Hướng dẫn sử dụng website L&ecirc; Phương Logistics:</strong></p> <p>Xin ch&agrave;o qu&yacute; vị kh&aacute;ch h&agrave;ng, dưới đ&acirc;y l&agrave; k&ecirc;nh youtube official của L&ecirc; Phương Logistics, c&ocirc;ng ty lập ra nhằm hướng dẫn qu&yacute; kh&aacute;ch h&agrave;ng dễ d&agrave;ng v&agrave; t&iacute;ch kiệm thời gian hơn trong vấn đề sử dụng website. Hi vọng, với những cải tiến kh&ocirc;ng ngừng v&agrave; ho&agrave;n thiện li&ecirc;n tục L&ecirc; Phương Logistics c&oacute; thể gi&uacute;p bạn quản l&yacute; đơn h&agrave;ng 1 c&aacute;ch hiệu quả</p> <p>1 - Hướng dẫn lập t&agrave;i khoản website L&ecirc; Phương Logistics:</p> <p>👉<a data-mce-href="https://www.youtube.com/watch?v=xRK2AnoHsc4" href="https://www.youtube.com/watch?v=xRK2AnoHsc4">https://www.youtube.com/watch?v=xRK2AnoHsc4</a></p> <p>2 - Hướng dẫn c&aacute;ch tạo đơn mua h&agrave;ng hộ tại website L&ecirc; Phương Logistics<br /> 👉<a data-mce-href="https://www.youtube.com/watch?v=VpCHOrOM0kI" href="https://www.youtube.com/watch?v=VpCHOrOM0kI">https://www.youtube.com/watch?v=VpCHOrOM0kI</a></p> <p>3 - Hướng dẫn c&aacute;ch nạp tiền v&agrave;o v&iacute; tại&nbsp;tại website L&ecirc; Phương Logistics</p> <p>👉<a data-mce-href="https://www.youtube.com/watch?v=MgJpxYvyyCk" href="https://www.youtube.com/watch?v=MgJpxYvyyCk">https://www.youtube.com/watch?v=MgJpxYvyyCk</a></p> <p>Cảm ơn qu&yacute; kh&aacute;ch h&agrave;ng nhiều!</p>'
-  );
-  const [data, setData] = useState("xin chào");
+  const [datas, setDatas] = useState(null);
+  const [data, setData] = useState(null);
+  const location = useLocation();
 
   useEffect(() => {
-    if (datas !== undefined) {
+    if (location.pathname) {
+      // lấy dữ liệu menu
+      let local_token = null;
+      const fetchData = async () => {
+        let body = {
+          userId: null,
+        };
+        const navbarData = await getSystemPost(
+          local_token,
+          location.pathname.slice(1),
+          body
+        );
+
+        if (navbarData.success) {
+          setData(navbarData.data);
+        } else {
+          notifiError("Lấy dữ liệu thất bại");
+        }
+      };
+      fetchData();
+    } else {
+      window.location.replace("/login");
     }
-  }, [datas]);
+  }, []);
+  useEffect(() => {
+    if (data) {
+      setDatas(data.content);
+    }
+  }, [data]);
   return (
     // ጿ ኈ ቼ ዽ ጿ ኈ ቼ ዽ ጿ ኈ ቼ ዽ ጿ ኈ ቼ ዽ ጿ ኈ ቼ ዽጿ ኈ ቼ ዽ ጿ ኈ ቼ ዽ ጿ ኈ ቼ ዽ ጿ ኈ ቼ ዽ ጿ ኈ ቼ ዽ ጿ ጿ ኈ ቼ ዽ ጿ ኈ ቼ ዽ ጿ ኈ ቼ ዽ ጿ ኈ ቼ ዽ ጿ ኈ ቼ ዽጿ ኈ ቼ ዽ ጿ ኈ ቼ ዽ ጿ ኈ ቼ ዽ ጿ ኈ ቼ ዽ ጿ ኈ ቼ ዽ ጿ ጿ ኈ ቼ ዽ ጿ ኈ ቼ ዽ ጿ ኈ ቼ ዽ ጿ ኈ ቼ ዽ ጿ ኈ ቼ ዽጿ ኈ ቼ ዽ ጿ ኈ ቼ ዽ ጿ ኈ ቼ ዽ ጿ ኈ ቼ ዽ ጿ ኈ ቼ ዽ ጿ ጿ ኈ ቼ ዽ ጿ ኈ ቼ ዽ ጿ ኈ ቼ ዽ ጿ ኈ ቼ ዽ ጿ ኈ ቼ ዽጿ ኈ ቼ ዽ ጿ ኈ ቼ ዽ ጿ ኈ ቼ ዽ ጿ ኈ ቼ ዽ ጿ ኈ ቼ ዽ ጿ ጿ ኈ ቼ ዽ ጿ ኈ ቼ ዽ ጿ ኈ ቼ ዽ ጿ ኈ ቼ ዽ ጿ ኈ ቼ ዽጿ ኈ ቼ ዽ ጿ ኈ ቼ ዽ ጿ ኈ ቼ ዽ ጿ ኈ ቼ ዽ ጿ ኈ ቼ ዽ ጿ ጿ ኈ ቼ ዽ ጿ ኈ ቼ ዽ ጿ ኈ ቼ ዽ ጿ ኈ ቼ ዽ ጿ ኈ ቼ ዽጿ ኈ ቼ ዽ ጿ ኈ ቼ ዽ ጿ ኈ ቼ ዽ ጿ ኈ ቼ ዽ ጿ ኈ ቼ ዽ ጿ ጿ ኈ ቼ ዽ ጿ ኈ ቼ ዽ ጿ ኈ ቼ ዽ ጿ ኈ ቼ ዽ ጿ ኈ ቼ ዽጿ ኈ ቼ ዽ ጿ ኈ ቼ ዽ ጿ ኈ ቼ ዽ ጿ ኈ ቼ ዽ ጿ ኈ ቼ ዽ ጿ ጿ ኈ ቼ ዽ ጿ ኈ ቼ ዽ ጿ ኈ ቼ ዽ ጿ ኈ ቼ ዽ ጿ ኈ ቼ ዽጿ ኈ ቼ ዽ ጿ ኈ ቼ ዽ ጿ ኈ ቼ ዽ ጿ ኈ ቼ ዽ ጿ ኈ ቼ ዽ ጿ ጿ ኈ ቼ ዽ ጿ ኈ ቼ ዽ ጿ ኈ ቼ ዽ ጿ ኈ ቼ ዽ ጿ ኈ ቼ ዽጿ ኈ ቼ ዽ ጿ ኈ ቼ ዽ ጿ ኈ ቼ ዽ ጿ ኈ ቼ ዽ ጿ ኈ ቼ ዽ ጿ ጿ ኈ ቼ ዽ ጿ ኈ ቼ ዽ ጿ ኈ ቼ ዽ ጿ ኈ ቼ ዽ ጿ ኈ ቼ ዽጿ ኈ ቼ ዽ ጿ ኈ ቼ ዽ ጿ ኈ ቼ ዽ ጿ ኈ ቼ ዽ ጿ ኈ ቼ ዽ ጿ
     <>

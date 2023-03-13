@@ -7,10 +7,14 @@ const api = axios.create({
 });
 
 // file api
-export const getSystemPost = async (id) => {
+export const getSystemPost = async (token, link, body) => {
   try {
-    const response = await api.get(apiUrl.get_sytempost_by_id(id));
-    // console.log(response.data);
+    const response = await api.post(apiUrl.get_sytempost_by_id(link), body, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    console.log(response.data);
     return response.data;
   } catch (e) {
     // alert("Có vẻ như hệ thống database sự cố");

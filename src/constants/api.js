@@ -17,7 +17,7 @@ module.exports = {
   update_user_by_id: `/api/users/update`,
 
   // lấy dữ liệu bài viết
-  get_sytempost_by_id: (id) => `/api/products/${id}`,
+  get_sytempost_by_id: (id) => `/api/menu/article/${id}`,
   //cập nhật dữ liệu bài viết
   update_sytempost_by_id: `/api/products/update`,
 

@@ -7,9 +7,6 @@ import { ToastContainer } from "react-toastify";
 import { notifiError } from "../utils/notify";
 
 const Navbar = () => {
-  const [imageUrl, setImageUrl] = useState(
-    "https://lephuonglogistics.com/site/images/logo-lephuong-1.png"
-  );
   const [menu, setMenu] = useState([]);
   const [layout, setLayout] = useState([]);
   const [data, setData] = useState(null);

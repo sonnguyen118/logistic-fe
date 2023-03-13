@@ -23,6 +23,8 @@ const Information = () => {
   ]);
   const [navigation, setNavigation] = useState([false, true, false]);
   const [type, setType] = useState(null);
+  const [firstName, setFirstName] = useState(null);
+  const [lastName, setLastName] = useState(null);
   const [page, setPage] = useState(1);
   // hàm click menu
   const toggleMenu = (index) => {
@@ -46,6 +48,10 @@ const Information = () => {
   // hàm thay đổi khi url thay đổi
   useEffect(() => {
     const searchParams = new URLSearchParams(location.search);
+    var firstName = localStorage.getItem("firstName");
+    setFirstName(firstName);
+    var lastName = localStorage.getItem("lastName");
+    setLastName(lastName);
     if (searchParams.get("type0")) {
       setMenuStatus([true, false, false, false, false]);
       setType("type0");
@@ -383,7 +389,7 @@ const Information = () => {
               ></div>
               <div className="information-left-user-infor">
                 <div className="information-left-user-infor-title">
-                  Nguyễn Như Quỳnh
+                  {firstName && lastName ? <>{lastName + firstName}</> : <></>}
                 </div>
                 <Link to={`/information/account`}>
                   <div className="information-left-user-infor-edit">

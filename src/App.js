@@ -17,7 +17,6 @@ import React from "react";
 import { BrowserRouter, HashRouter, Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
 import About from "./pages/About";
-import Contact from "./pages/Contact";
 import Information from "./pages/Information";
 import Products from "./pages/Products";
 import Test from "./pages/Test";
@@ -42,7 +41,6 @@ const App = () => {
       <Routes>
         <Route exact path="/" element={<Home />} />
         <Route exact path="/about" element={<About />} />
-        <Route exact path="/contact" element={<Contact />} />
         <Route exact path="/login" element={<Login />} />
         <Route exact path="/forgot-password" element={<ForgotPassword />} />
         <Route exact path="/information" element={<Information />} />
