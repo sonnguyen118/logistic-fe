@@ -30,7 +30,7 @@ const Tariffs = () => {
       };
       fetchData();
     } else {
-      window.location.replace("/");
+      window.location.replace("/login");
     }
   }, []);
   useEffect(() => {

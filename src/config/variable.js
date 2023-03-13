@@ -1,11 +1,9 @@
 module.exports = {
   // website: "https://www.critistudio.top",
   // sitekey: "6LetUJMhAAAAAIl1frhCRtTPvXIzSBk3QMFtcs79",
-  // slider1: 0,
 
   website: "http://localhost:3000",
   sitekey: "6LdJWSMhAAAAAPaN32qE11VJwISjT-PaptRIFuW9",
-  slider1: 0,
   ckeditor4forurl: {
     filebrowserUploadMethod: "form",
     filebrowserUploadUrl: "/api/upload/ckeditor",

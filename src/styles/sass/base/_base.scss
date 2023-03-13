@@ -151,3 +151,9 @@ select::-ms-expand {
 .backfround-transparent {
   background-color: rgba($color: #fff, $alpha: 0.8) !important;
 }
+
+// css cho con trỏ
+
+.cursor-pointer:hover {
+  cursor: pointer !important;
+}

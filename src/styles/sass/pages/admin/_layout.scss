@@ -1,0 +1,33 @@
+.admin {
+  display: flex;
+  &__sliderbar {
+    width: 20%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 200px;
+    height: 200px;
+    background-color: #ccc;
+    transition: transform 0.3s ease-out;
+    z-index: 100;
+    &-hidden {
+      transform: translateX(-230px);
+    }
+  }
+  &__content {
+    margin-left: 225px;
+    width: calc(100vw - 225px);
+    transition: all 0.3s linear;
+    &-open {
+      margin-left: 0px;
+      transition: all 0.3s linear;
+    }
+  }
+}
+.notfound-page {
+  margin-top: 20vh;
+  &-admin {
+    overflow-x: hidden;
+    background-color: #fff;
+  }
+}

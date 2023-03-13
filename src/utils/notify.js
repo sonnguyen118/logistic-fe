@@ -63,3 +63,21 @@ export const swweetSucceeded = (
     window.open(link, "_self");
   });
 };
+
+export const swweetSucceededReload = (
+  title,
+  text,
+  icon,
+  showConfirmButton,
+  timer
+) => {
+  Swal.fire({
+    title: title,
+    text: text,
+    icon: icon,
+    showConfirmButton: showConfirmButton,
+    timer: timer,
+  }).then(() => {
+    window.reload();
+  });
+};

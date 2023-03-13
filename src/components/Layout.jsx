@@ -12,7 +12,7 @@ const Layout = ({ children }) => {
       <Footer />
       <a href="tel:0339551909">
         <div className="container-phone-call">
-          <i className="icon bgc-blue c-white circle p-3 osc-rotation">
+          <i className="icons bgc-blue c-white circles p-3 osc-rotation">
             <i className="fa-solid fa-phone"></i>
           </i>
         </div>

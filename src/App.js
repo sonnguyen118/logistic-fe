@@ -64,7 +64,10 @@ const App = () => {
         />
         <Route exact path="/information/notify" element={<Information />} />
         <Route exact path="/products" element={<Products />} />
-        <Route exact path="/admin" element={<AdminPage />} />
+
+        {/* cấu hình router trong hệ thống trang admin */}
+        <Route path="/admin/*" element={<AdminPage />} />
+
         <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>

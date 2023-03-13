@@ -83,6 +83,14 @@ const Navbar = () => {
                   {layout.timework}
                 </span>
               </div>
+
+              <div className="navbar-pc-top-left-item">
+                <i className="navbar-pc-top-left-item-icon fa-sharp fa-solid fa-dollar-sign"></i>
+                <span className="navbar-pc-top-left-item-title">Tỷ giá:</span>
+                <span className="navbar-pc-top-left-item-content">
+                  {layout.exchange_rate} VNĐ/NDT
+                </span>
+              </div>
             </>
           ) : (
             <></>
@@ -173,9 +181,9 @@ const Navbar = () => {
           ) : (
             <></>
           )}
-          <Link to={`/`} className="navbar-pc-menu-group-btn">
+          {/* <Link to={`/`} className="navbar-pc-menu-group-btn">
             <h2 className="navbar-pc-menu-group-btn-title">Công cụ đặt hàng</h2>
-          </Link>
+          </Link> */}
         </div>
       </div>
       <ToastContainer />

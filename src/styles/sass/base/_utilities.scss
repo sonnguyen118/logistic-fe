@@ -131,10 +131,6 @@
   }
 }
 
-.p-5 {
-  padding: 0.2rem;
-}
-
 .c-white {
   color: $color-white !important;
 }
@@ -143,11 +139,11 @@
   background-color: $color-primary !important;
 }
 
-.circle {
+.circles {
   border-radius: 50%;
 }
 
-.icon:after {
+.icons:after {
   @include fill();
   content: "";
   background-color: transparent;
@@ -159,7 +155,7 @@
   transform-origin: 50% 50%;
 }
 
-.icon:before {
+.icons:before {
   @include fill();
   content: "";
   background-color: rgba($color-primary, 0.5);
@@ -176,7 +172,7 @@
   transform-origin: 50% 50%;
 }
 
-.icon {
+.icons {
   font-family: "Material Icons";
   font-size: 1.5rem;
   line-height: 1;
@@ -291,3 +287,5 @@
 }
 @include responsive_1900 {
 }
+
+// thêm
